@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로이 돌봄일기 블로그</title>
+<style>
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"맑은 고딕";
+    font-size:16px;
+    color:#000000;
+}
+ul{
+    list-style-type:none;
+    margin:0;
+}
+#page{
+    width:100%;
+    margin:0 auto;
+}
+header #top_menu{
+    float:right;
+    margin:15px 20px 0 0;
+}
+header #top_menu li{
+    display:inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo{
+    width:400px;
+    max-width: 100%;
+    margin-bottom:10px;
+}
+.line{
+    margin-top:10px;
+    border-top:solid 1px #cccccc;
+}
+.line2{
+    border-top:solid 1px #cccccc;
+}
+
+/* ★ nav바의 세로 길이가 이미지에 맞춰 유연하게 줄어들도록 설정 */
+header nav {
+    width: 100%;
+    display: block;
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; /* 위아래 불필요한 고정 여백 최소화 */
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; /* 이미지 아래에 브라우저가 임의로 만드는 미세한 공백 제거 */
+}
+
+/* 본문 가운데 영역 (.main) 스타일 수정 */
+.content-wrapper {
+    overflow: auto;
+    padding-top: 15px;
+}
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; /* ★ 이 줄을 추가해 주세요! */
+}
+
+footer ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+footer #left{
+    float:left;
+}
+footer #sns{
+    float:right;
+}
+footer #email li{
+    margin-top:5px;
+}
+footer #copyright{
+    margin-top:10px;
+    font-size:11px;
+    color:#888888;
+}
+footer #sns h3{
+    margin-top:0;
+    margin-bottom:0;
+    font-size:16px;
+    color:#585858;
+}
+footer #sns select{
+    margin:5px 0 0 100px;
+    width:100px;
+    height:18px;
+    font-size:11px;
+}
+footer #icons{
+    margin-top:5px;
+    text-align:right;
+}
+footer #icons img{
+    width:25px;
+}
+footer li{
+    font-size:12px;
+}
+
+.shop-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333333;
+    padding-bottom: 10px;
+}
+
+@media only screen and (max-width:620px){
+    /* 모바일 환경 스타일 */
+    .menu, .main, .right{
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div id="page">
+    
+    <header style="background-color:#faf9f4;">
+        <ul id="top_menu">
+            <li>로그인 | </li>
+            <li>방명록 | </li>
+            <li>서로이웃 | </li>
+            <li>쪽지쓰기 | </li>
+        </ul>
+        
+        <div class="logo-container">
+            <a href="index.html">
+            <img id="logo" src="logo.png">
+            </a>
+        </div>
+
+        <div class="line"></div>
+
+        <nav style="background-image:url('paper.png');">
+            <ul>
+                <li><a href="menu01.html"><img src="menu01.png"></a></li>
+                <li><a href="menu02.html"><img src="menu02.png"></a></li>
+                <li><a href="menu03.html"><img src="menu03.png"></a></li>
+                <li><a href="menu04.html"><img src="menu04.png"></a></li>
+                <li><a href="menu05.html"><img src="menu05.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="line2"></div>
+
+    <!-- 본문 영역 시작 (첫 번째 제안의 레이아웃 스타일 적용) -->
+    <div class="content-wrapper" style="max-width: 800px; margin: 0 auto; padding: 30px 20px; line-height: 1.8;">
+
+        <div class="shop-title">
+            <img src="subtitle4.png">
+        </div>
+        
+        <!-- 본문 내용 -->
+        <p style="margin-bottom: 15px;">
+            어느덧 우리 로이가 거의 만 9살로 벌써 아저씨에 가까운 나이가 되었다. 마음은 아직도 아기 같은데 말이다.
+        </p>
+        
+        <p style="margin-bottom: 15px;">
+            몇 달 전 처음으로 로이의 건강검진을 진행했는데, 안타깝게도 <strong>심장병 B2 단계(초기)</strong>라는 진단을 받았다. 
+            그래서 지금은 매달 한 달 치씩 심장약을 사서 열심히 먹이고 있다. (그게 한 달에만 20만 원이라는 사실....ㄷㄷ)
+        </p>
+        
+        <p style="margin-bottom: 15px;">
+            여기에 추가로 <strong>슬개골 탈구 3기</strong> 진단도 같이 받았다.
+            하지만 나이가 좀 있고 심장병도 앓고 있다 보니, 무리하게 수술을 시키기보다는 일상에서 무리하지 않게 지켜보는 게 맞다고 판단했다.
+            다행히 아직은 걷는 데 전혀 문제가 없어서, 병원에서 권해주신 대로 슬개골 영양제를 챙겨 먹이고 있다.
+        </p>
+
+        <!-- 하이라이트 박스 레이아웃 (감성적인 속마음 박스) -->
+        <div style="background-color: #faf9f4; border-left: 4px solid #d4ceb8; padding: 20px; margin: 30px 0; border-radius: 4px;">
+            <p style="margin: 0; color: #555555; font-style: italic;">
+                "항상 우리 아들 건강하다고만 믿고 지내왔는데, 건강검진을 통해 갑작스럽게 심장병을 발견하게 되어서 너무 놀라고 가슴이 아팠다. 
+                혹시 내가 평소에 뭘 잘못해줘서 애가 심장병에 걸린 건 아닐까 하는 생각에 한동안 자책도 많이 했다. 
+                하지만 슬퍼만 하고 있을 수는 없다! 앞으로 돈 더 열심히 많이 벌어서, 우리 로이에게 해줄 수 있는 건 아낌없이 다 해주고 싶다. 
+                로이야, 아프지 말고 누나랑 오래오래 행복하자! ❤️"
+            </p>
+        </div>
+
+        <!-- 체크리스트 레이아웃 (하단 약속 상자) -->
+        <div style="border: 1px solid #e9e9e9; padding: 20px; border-radius: 6px; background-color: #ffffff;">
+            <h3 style="font-size: 18px; color: #444444; margin-bottom: 12px; display: flex; align-items: center;">
+                📌 Roy's Care List
+            </h3>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="margin-bottom: 8px; color: #666666; padding-left: 15px; text-indent: -15px;">✔ 하루도 빠짐없이 매일매일 심장약 챙겨 먹이기</li>
+                <li style="margin-bottom: 8px; color: #666666; padding-left: 15px; text-indent: -15px;">✔ 다리에 무리가 가지 않도록 슬개골 영양제 급여하기</li>
+                <li style="margin-bottom: 0; color: #666666; padding-left: 15px; text-indent: -15px;">✔ 돈 열심히 벌어서 로이가 필요한 것은 무엇이든 다 해주기!</li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- 본문 영역 끝 -->
+
+    <footer>
+        <div id="left">
+            <ul id="email">
+                <li>kersey98@naver.com</li>
+                <li>sawyer@gachon.ac.kr</li>
+                <li>kerspective@gmail.com</li>
+                <li id="copyright">Copyright by Roy's Blog All Rights Reserved.</li>
+            </ul>
+        </div>
+        <div id="sns">
+            <h3>소셜 미디어를 팔로우하세요!</h3>
+            <select>
+                <option>네이버</option>
+                <option>페이스북</option>
+                <option>트위터</option>
+            </select>
+            <div id="icons">
+                <img src="facebook.png" alt="">
+                <img src="naverblog.png" alt="">
+                <img src="x.png" alt="">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

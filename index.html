@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로이 돌봄일기 블로그</title>
+<style>
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"맑은 고딕";
+    font-size:16px;
+    color:#000000;
+}
+ul{
+    list-style-type:none;
+    margin:0;
+}
+#page{
+    width:100%;
+    margin:0 auto;
+}
+header #top_menu{
+    float:right;
+    margin:15px 20px 0 0;
+}
+header #top_menu li{
+    display:inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo{
+    width:400px;
+    max-width: 100%;
+    margin-bottom:10px;
+}
+.line{
+    margin-top:10px;
+    border-top:solid 1px #cccccc;
+}
+.line2{
+    border-top:solid 1px #cccccc;
+}
+
+/* ★ nav바의 세로 길이가 이미지에 맞춰 유연하게 줄어들도록 설정 */
+header nav {
+    width: 100%;
+    display: block;
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; /* 위아래 불필요한 고정 여백 최소화 */
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; /* 이미지 아래에 브라우저가 임의로 만드는 미세한 공백 제거 */
+}
+
+/* 본문 가운데 영역 (.main) 스타일 수정 */
+.content-wrapper {
+    overflow: auto;
+    padding-top: 15px;
+}
+.main{
+    margin-top:8px;
+    margin-bottom:10px;
+    float:left;
+    width:40%;
+    padding:10px 20px 30px 20px; /* 좌우 여백 균형 조정 */
+    color: #1d1d1d;
+}
+.main h2{
+    margin-bottom:12px;
+    color: #585858;
+    font-size: 20px;
+    border-bottom: 2px solid #eaddca; /* 제목 밑에 부드러운 포인트 선 추가 */
+    padding-bottom: 5px;
+}
+.main ul{
+    list-style-type: none; /* 깔끔하게 불릿 제거 */
+    padding-left: 0;
+}
+.main li {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+/* 두 프로필 박스 공통 스타일 */
+.royprofile, .myprofile {
+    width:95%;
+    overflow: hidden; /* 내부 float 해제 */
+    background-color: #fdfbf7; /* 연한 배경색으로 독립된 박스 느낌 부여 */
+    padding: 10px;
+    border: 1px solid #f0e4d0;
+    border-radius: 8px;
+    margin-left:17px;
+}
+.royprofile {
+    margin-bottom: 15px; /* 로이 프로필과 주인장 프로필 사이의 여백 확보 */
+}
+.myprofile {
+    clear: both;
+}
+/* 왼쪽 이미지 영역 */
+.main .mainleft{
+    float:left;
+    width: 35%; /* 이미지 영역 비율 고정 */
+    text-align: center;
+}
+.main .mainleft img {
+    border-radius: 12px; /* 이미지를 부드럽게 둥글림 */
+    object-fit: cover;
+    max-width: 100%;
+}
+/* 오른쪽 텍스트 영역 */
+.main .mainright{
+    float: left;
+    width: 65%;
+    padding-left: 20px; /* 이미지와 글자 사이 간격 넓힘 */
+}
+.right{
+    background-image:url('notebook.png');
+    border:solid 1px #d4b982;
+    float:left;
+    width:30%;
+    padding-right:20px;
+    padding-left:20px;
+    padding-bottom:20px;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+.left{
+    border:solid 1px #d4b982;
+    float:left;
+    width:30%;
+    padding:10px 15px 15px 15px;
+    margin-top:7px;
+    margin-bottom:7px;
+    text-align:center;
+}
+.right img{
+    margin-top:10px;
+}
+
+#visitor{
+    width:100%;
+    overflow: hidden;
+}
+#visitor .subject{
+    float:left;
+    margin-left:10px;
+}
+#visitor .date{
+    float:right;
+    margin-right:5px;
+}
+#visitor ul{
+    margin-top:5px;
+}
+
+#notice{
+    width:100%;
+    overflow: hidden;
+}
+#notice .subject{
+    float:left;
+    margin-left:10px;
+}
+#notice .date{
+    float:right;
+    margin-right:5px;
+}
+#notice ul{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; /* ★ 이 줄을 추가해 주세요! */
+}
+
+footer ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+footer #left{
+    float:left;
+}
+footer #sns{
+    float:right;
+}
+footer #email li{
+    margin-top:5px;
+}
+footer #copyright{
+    margin-top:10px;
+    font-size:11px;
+    color:#888888;
+}
+footer #sns h3{
+    margin-top:0;
+    margin-bottom:0;
+    font-size:16px;
+    color:#585858;
+}
+footer #sns select{
+    margin:5px 0 0 100px;
+    width:100px;
+    height:18px;
+    font-size:11px;
+}
+footer #icons{
+    margin-top:5px;
+    text-align:right;
+}
+footer #icons img{
+    width:25px;
+}
+footer li{
+    font-size:12px;
+}
+
+
+th{
+    background-color:beige;
+}
+.sunday{
+    color:red;
+}
+.saturday{
+    color:blue;
+}
+td{
+    height:50px;
+    width:75px;
+}
+table,tr,th,td{
+    border-collapse:collapse;
+    border:solid 1px #cccccc;
+    font-size:12px;
+}
+table{
+    margin-top:5px;
+    margin-left:8px;
+    margin-right:7px;
+}
+td{
+    text-align:left;
+    vertical-align: top;
+    padding:5px;
+}
+td.sticker{
+    position:relative;
+}
+.sticker img{
+    width:20px;
+    position: absolute; /* 부모인 td를 기준으로 자유롭게 이동 */
+    right: 3px;         /* 오른쪽에서 5px 띄움 */
+    top: 3px;
+}
+
+/* 1. 상단 float 요소들의 영향을 차단하기 위해 clear 추가 */
+#banner {
+    width: 100%;
+    clear: both; 
+    height: 120px;
+    background-color: #f9e8c8;
+    margin-top: 15px; /* 본문과의 간격 확보 */
+    
+    /* 💡 아래의 속성을 추가해 주시면 화면을 벗어나는 배너들이 깔끔하게 숨겨집니다! */
+    overflow: hidden; 
+}
+/* 2. 실제 자식 요소들을 품고 있는 ul에 Flexbox를 적용 */
+#banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;  /* 수평 중앙 정렬 */
+    align-items: center;      /* 수직 중앙 정렬 */
+    flex-wrap: nowrap;        /* 화면이 좁아져도 아래로 떨어지지 않도록 설정 */
+}
+
+/* 3. li 내부의 이미지들이 부모 높이에 맞춰 알맞게 조절되도록 설정 */
+#banner li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px; /* 이미지 간의 좌우 간격 조절 (기존 35px은 넓어서 넘칠 수 있음) */
+}
+
+#banner li img {
+    max-height: 90px; /* 배너 바 높이에 맞게 이미지 크기 제한 */
+    width: auto;
+    display: block;
+}
+
+@media only screen and (max-width:620px){
+    /* 모바일 환경 스타일 */
+    .menu, .main, .right{
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div id="page">
+    
+    <header style="background-color:#faf9f4;">
+        <ul id="top_menu">
+            <li>로그인 | </li>
+            <li>방명록 | </li>
+            <li>서로이웃 | </li>
+            <li>쪽지쓰기 | </li>
+        </ul>
+        
+        <div class="logo-container">
+            <a href="index.html">
+            <img id="logo" src="logo.png">
+            </a>
+        </div>
+
+        <div class="line"></div>
+
+        <nav style="background-image:url('paper.png');">
+            <ul>
+                <li><a href="menu01.html"><img src="menu01.png"></a></li>
+                <li><a href="menu02.html"><img src="menu02.png"></a></li>
+                <li><a href="menu03.html"><img src="menu03.png"></a></li>
+                <li><a href="menu04.html"><img src="menu04.png"></a></li>
+                <li><a href="menu05.html"><img src="menu05.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="line2"></div>
+
+        <div class="left">
+            <img src="calender.png" alt="" height="60px">
+                <table>
+        <tr>
+            <th class="sunday">일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th class="saturday">토</th>
+        </tr>
+        <tr>
+            <td class="sunday"></td>
+            <td>1</td>
+            <td>2<Br>펫박람회
+            </td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class="saturday">6</td>
+        </tr>
+        <tr>
+            <td class="sunday">7</td>
+            <td>8</td>
+            <td>9</td>
+            <td class="sticker">10<br>정기검진
+                <img src="hospital.png" alt="">
+            </td>
+            <td>11</td>
+            <td>12</td>
+            <td class="saturday">13</td>
+        </tr>
+        <tr>
+            <td class="sunday">14</td>
+            <td>15</td>
+            <td>16<br>누나방학</td>
+            <td>17
+            </td>
+            <td>18</td>
+            <td class="sticker">19<br>구충약
+                <img src="pill.png" alt="">
+            </td>
+            <td class="saturday">20</td>
+        </tr>
+        <tr>
+            <td class="sunday">21</td>
+            <td class="sticker">22<br>나들이
+                <img src="heart.png" alt="">
+            </td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td class="saturday">26</td>
+        </tr>
+        <tr>
+            <td class="sunday">27</td>
+            <td class="saturday">28</td>
+            <td>29</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="saturday"></td>
+        </tr>
+    </table>
+        </div>
+
+        <!-- 가운데 본문 영역 -->
+        <div class="main">
+            <!-- 로이 프로필 박스 -->
+            <div class="royprofile">
+                <div class="mainleft">
+                    <img src="mainroy.png" alt="로이 사진" height="150px" style="width:170px;">
+                </div>
+                <div class="mainright">
+                    <h2>🐾 로이 프로필</h2>
+                    <ul>
+                        <li><strong>이름:</strong> 로이(남)</li>
+                        <li><strong>견종,나이:</strong> 비숑 프리제, 9살</li>
+                        <li><strong>성격:</strong> 차분하면서도 장난꾸러기</li>
+                        <li><strong>최애:</strong> 산책, 간식, 우리 가족</li>
+                    </ul>
+                </div>
+            </div> 
+            
+            <!-- 주인장 프로필 박스 -->
+            <div class="myprofile">
+                <div class="mainleft">
+                    <img src="user.png" alt="주인장 사진" height="130px" style="width:115px;">
+                </div>
+                <div class="mainright">
+                    <h2>👩‍💻 주인장 프로필</h2>
+                    <ul>
+                        <li><strong>이름:</strong> 유준하(여)</li>
+                        <li><strong>직업:</strong> 평범한 대학생</li>
+                        <li><strong>소개:</strong> 로이 덕질하는 일상 블로그</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div id="visitor">
+                <!--<h2>방명록</h2>-->
+                <img src="visitor.png" alt="" height="60px">
+                <ul>
+                    <li>
+                        <div class="subject">로이 너무 귀여워요! by 김유진</div>
+                        <div class="date">2024-06-04</div>
+                    </li>
+                    <li>
+                        <div class="subject">제 강아지도 로이입니다ㅋㅋ. by 하민수</div>
+                        <div class="date">2024-06-03</div>
+                    </li>
+                    <li>
+                        <div class="subject">6월달에도 자주 소통해요. by 이영희</div>
+                        <div class="date">2024-06-02</div>
+                    </li>
+                    <li>
+                        <div class="subject">저도 강아지 키우는데 친구해요. by 로이킴</div>
+                        <div class="date">2024-06-01</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="line"></div>
+
+            <div id="notice">
+                <!--<h2>주인장 공지사항</h2>-->
+                <img src="notice.png" alt="" height="60px">
+                <ul>
+                    <li>
+                        <div class="subject">로이 6월달 새로산 반려용품 공개합니다.</div>
+                        <div class="date">2024-06-01</div>
+                    </li>
+                    <li>
+                        <div class="subject">지난 달 만난 로이와 친구들 사진 보세요.</div>
+                        <div class="date">2024-05-31</div>
+                    </li>
+                    <li>
+                        <div class="subject">6월 반려견 정기모임 모집합니다.</div>
+                        <div class="date">2024-05-30</div>
+                    </li>
+                    <li>
+                        <div class="subject">이종사촌에게 개가 생겼다고 하네요.</div>
+                        <div class="date">2024-05-29</div>
+                    </li>
+                </ul>
+            </div> 
+        </div>      
+    </div>
+
+    <div id="banner">
+        <ul>
+            <li><img src="banner01.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner02.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner03.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner04.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner05.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner06.png"></li>
+        </ul>
+    </div>
+
+    <footer>
+        <div id="left">
+            <ul id="email">
+                <li>kersey98@naver.com</li>
+                <li>sawyer@gachon.ac.kr</li>
+                <li>kerspective@gmail.com</li>
+                <li id="copyright">Copyright by Roy's Blog All Rights Reserved.</li>
+            </ul>
+        </div>
+        <div id="sns">
+            <h3>소셜 미디어를 팔로우하세요!</h3>
+            <select>
+                <option>네이버</option>
+                <option>페이스북</option>
+                <option>트위터</option>
+            </select>
+            <div id="icons">
+                <img src="facebook.png" alt="">
+                <img src="naverblog.png" alt="">
+                <img src="x.png" alt="">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

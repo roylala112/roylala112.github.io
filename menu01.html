@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로이 돌봄일기 블로그</title>
+<style>
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"맑은 고딕";
+    font-size:16px;
+    color:#000000;
+}
+ul{
+    list-style-type:none;
+    margin:0;
+}
+#page{
+    width:100%;
+    margin:0 auto;
+}
+header #top_menu{
+    float:right;
+    margin:15px 20px 0 0;
+}
+header #top_menu li{
+    display:inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo{
+    width:400px;
+    max-width: 100%;
+    margin-bottom:10px;
+}
+.line{
+    margin-top:10px;
+    border-top:solid 1px #cccccc;
+}
+.line2{
+    border-top:solid 1px #cccccc;
+}
+
+header nav {
+    width: 100%;
+    display: block;
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; 
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; 
+}
+
+.content-wrapper {
+    overflow: auto;
+    padding-top: 15px;
+}
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; 
+}
+
+footer ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+footer #left{
+    float:left;
+}
+footer #sns{
+    float:right;
+}
+footer #email li{
+    margin-top:5px;
+}
+footer #copyright{
+    margin-top:10px;
+    font-size:11px;
+    color:#888888;
+}
+footer #sns h3{
+    margin-top:0;
+    margin-bottom:0;
+    font-size:16px;
+    color:#585858;
+}
+footer #sns select{
+    margin:5px 0 0 100px;
+    width:100px;
+    height:18px;
+    font-size:11px;
+}
+footer #icons{
+    margin-top:5px;
+    text-align:right;
+}
+footer #icons img{
+    width:25px;
+}
+footer li{
+    font-size:12px;
+}
+
+
+/* ===== diary page ===== */
+
+.diary-container{
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.diary-title{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #5b4636;
+}
+
+.photo-grid{
+    overflow: hidden; /* float 해제용 */
+    margin-bottom: 30px;
+}
+
+.photo-grid img{
+    float: left;
+    width: 48%;       /* 한 줄에 2개씩 배치 */
+    margin: 1%;       /* 이미지 사이 간격 */
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #cccccc;
+}
+
+.diary-paper{
+    clear: both;      /* 위에서 쓴 float 초기화 */
+    background: #fffdf7;
+    padding: 30px;
+    border: 1px solid #e2d8c7;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #4d4035;
+}
+
+.diary-paper p{
+    margin-bottom: 20px;
+}
+
+/* 미디어 쿼리도 복잡한 것 다 빼고 모바일 화면 하나로만 단순화 */
+@media only screen and (max-width: 768px){
+    .photo-grid img{
+        width: 98%;   /* 모바일에서는 한 줄에 1개씩 꽉 차게 */
+        height: auto;
+        margin: 1% 1% 10px 1%;
+    }
+    .diary-title{
+        font-size: 24px;
+    }
+    .diary-paper{
+        padding: 20px;
+        font-size: 15px;
+    }
+    .menu, .main, .right{
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div id="page">
+    
+    <header style="background-color:#faf9f4;">
+        <ul id="top_menu">
+            <li>로그인 | </li>
+            <li>방명록 | </li>
+            <li>서로이웃 | </li>
+            <li>쪽지쓰기 | </li>
+        </ul>
+        
+        <div class="logo-container">
+            <a href="index.html">
+            <img id="logo" src="logo.png">
+            </a>
+        </div>
+
+        <div class="line"></div>
+
+        <nav style="background-image:url('paper.png');">
+            <ul>
+                <li><a href="menu01.html"><img src="menu01.png"></a></li>
+                <li><a href="menu02.html"><img src="menu02.png"></a></li>
+                <li><a href="menu03.html"><img src="menu03.png"></a></li>
+                <li><a href="menu04.html"><img src="menu04.png"></a></li>
+                <li><a href="menu05.html"><img src="menu05.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="line2"></div>
+
+<div class="diary-container">
+<!-- <h1 class="diary-title">로이와 첫만남</h1> -->
+ <div class="diary-title">
+    <img src="subtitle1.png" alt="로이와 첫만남">
+</div>
+
+    <div class="photo-grid">
+        <img src="first1.jpg">
+        <img src="first2.jpg">
+        <img src="first3.jpg">
+        <img src="first4.jpg">
+    </div>
+
+    <div class="diary-paper">
+        <p>
+            로이와 처음 만난건 2017년 말. 내가 방황하던 시기 엄마가 갑자기
+            나랑 강아지 보러 가자고 하다니 로이를 덜컥 데려와버렸다.
+            예전에 강아지를 키우자고 했을때 반대했던 엄마가 왜 갑자기
+            그런 선택을 한건진 모르겠다. 어쨌든 그렇게 로이를 만나게 되었다.
+        </p>
+
+        <p>
+            로이는 처음 만났을때 곤히 자고 있었다. 다른 강아지들이 사람에게
+            관심을 받기 위해 왕왕 짖고 있을때 로이는 곤히 자고 있는 모습이
+            차분한 내 모습과 비슷한 것 같아 맘에 들어서 데려오게 되었다.
+            근데 데려오고 보니 마냥 차분하기만 한 강아지는 아니다. 녀석 날 만나기 위해
+            일부러 자는 척 한거구나?
+        </p>
+
+        <p>
+            로이의 이름은 내가 좋아하는 영화 ‘더폴’의 잘생긴 남자주인공
+            ‘로이’에서 따왔다. 이름을 잘 지어준 것 같다. 이제는 로이? 하면
+            뒤돌아서 날 쳐다본다. 자기 이름을 아는지도...
+        </p>
+    </div>
+
+</div>
+
+    <footer>
+        <div id="left">
+            <ul id="email">
+                <li>kersey98@naver.com</li>
+                <li>sawyer@gachon.ac.kr</li>
+                <li>kerspective@gmail.com</li>
+                <li id="copyright">Copyright by Roy's Blog All Rights Reserved.</li>
+            </ul>
+        </div>
+        <div id="sns">
+            <h3>소셜 미디어를 팔로우하세요!</h3>
+            <select>
+                <option>네이버</option>
+                <option>페이스북</option>
+                <option>트위터</option>
+            </select>
+            <div id="icons">
+                <img src="facebook.png" alt="">
+                <img src="naverblog.png" alt="">
+                <img src="x.png" alt="">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

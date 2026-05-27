@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로이 돌봄일기 블로그</title>
+<style>
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"맑은 고딕";
+    font-size:16px;
+    color:#000000;
+}
+ul{
+    list-style-type:none;
+    margin:0;
+}
+#page{
+    width:100%;
+    margin:0 auto;
+}
+header #top_menu{
+    float:right;
+    margin:15px 20px 0 0;
+}
+header #top_menu li{
+    display:inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo{
+    width:400px;
+    max-width: 100%;
+    margin-bottom:10px;
+}
+.line{
+    margin-top:10px;
+    border-top:solid 1px #cccccc;
+}
+.line2{
+    border-top:solid 1px #cccccc;
+}
+
+/* ★ nav바의 세로 길이가 이미지에 맞춰 유연하게 줄어들도록 설정 */
+header nav {
+    width: 100%;
+    display: block;
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; /* 위아래 불필요한 고정 여백 최소화 */
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; /* 이미지 아래에 브라우저가 임의로 만드는 미세한 공백 제거 */
+}
+
+.shop-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333333;
+    padding-bottom: 10px;
+}
+
+/* ==========================================
+   ✨ 5번째 메뉴 전용 새 레이아웃 / CSS 스타일
+   ========================================== */
+.content-wrapper {
+    overflow: auto;
+    padding-top: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.story-container {
+    float: left;
+    width: 58%;
+    line-height: 1.8;
+    padding-right: 15px;
+}
+.story-container .intro-text {
+    font-size: 17px;
+    color: #444444;
+    margin-bottom: 30px;
+    font-weight: bold;
+    border-left: 3px solid #888888;
+    padding-left: 15px;
+}
+
+
+.magazine-row {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8e6df;
+}
+.magazine-row h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+/* 카테고리 태그 디자인 */
+.magazine-row h3 .tag {
+    font-size: 11px;
+    font-weight: normal;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-right: 8px;
+}
+.tag-blue { background-color: #8fa0e4; }
+.tag-red { background-color: #e48f8f; }
+.tag-green { background-color: #8de48f; }
+
+.magazine-row p {
+    font-size: 14.5px;
+    color: #555555;
+    margin-bottom: 0;
+}
+
+/* 완전히 형태를 바꾼 하단 에필로그 한 줄 영역 */
+.epilogue-section {
+    margin-top: 35px;
+    padding: 20px 0;
+    border-top: 2px double #cccccc;
+    text-align: center;
+}
+.epilogue-section h3 {
+    font-size: 15px;
+    color: #222222;
+    margin-bottom: 5px;
+}
+.epilogue-section p {
+    font-size: 14px;
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+
+/* 오른쪽 사진 갤러리 레이아웃 */
+.gallery-container {
+    float: right;
+    width: 38%;
+    background-color: #fcfcfc;
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.gallery-title {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px dashed #dddddd;
+    padding-bottom: 10px;
+}
+
+/* 2x2 사진 그리드 시스템 */
+.grid-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+}
+.grid-item {
+    width: 48%;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 5px;
+    background: #ffffff;
+    text-align: center;
+}
+.grid-item img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+/* 하단 footer 밀림 방지 */
+.clear-fix {
+    clear: both;
+}
+
+/* ========================================== */
+
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; /* ★ 이 줄을 추가해 주세요! */
+}
+
+footer ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+footer #left{
+    float:left;
+}
+footer #sns{
+    float:right;
+}
+footer #email li{
+    margin-top:5px;
+}
+footer #copyright{
+    margin-top:10px;
+    font-size:11px;
+    color:#888888;
+}
+footer #sns h3{
+    margin-top:0;
+    margin-bottom:0;
+    font-size:16px;
+    color:#585858;
+}
+footer #sns select{
+    margin:5px 0 0 100px;
+    width:100px;
+    height:18px;
+    font-size:11px;
+}
+footer #icons{
+    margin-top:5px;
+    text-align:right;
+}
+footer #icons img{
+    width:25px;
+}
+footer li{
+    font-size:12px;
+}
+
+
+@media only screen and (max-width:620px){
+    /* 모바일 환경 스타일 */
+    .menu, .main, .right{
+        width: 100%;
+    }
+    /* 모바일 환경에서 1단으로 떨어지도록 조절 */
+    .story-container, .gallery-container {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+}
+</style>
+</head>
+<body>
+<div id="page">
+    
+    <header style="background-color:#faf9f4;">
+        <ul id="top_menu">
+            <li>로그인 | </li>
+            <li>방명록 | </li>
+            <li>서로이웃 | </li>
+            <li>쪽지쓰기 | </li>
+        </ul>
+        
+        <div class="logo-container">
+            <a href="index.html">
+            <img id="logo" src="logo.png">
+            </a>
+        </div>
+
+        <div class="line"></div>
+
+        <nav style="background-image:url('paper.png');">
+            <ul>
+                <li><a href="menu01.html"><img src="menu01.png"></a></li>
+                <li><a href="menu02.html"><img src="menu02.png"></a></li>
+                <li><a href="menu03.html"><img src="menu03.png"></a></li>
+                <li><a href="menu04.html"><img src="menu04.png"></a></li>
+                <li><a href="menu05.html"><img src="menu05.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="line2"></div>
+
+    <div class="content-wrapper">
+        
+        <div class="shop-title">
+            <img src="subtitle5.png">
+        </div>
+
+        <div class="story-container">
+            <p class="intro-text">
+                로이와 일상적으로 매일 하는 산책 외에, 그동안 함께 멀리 떠났던 특별한 기억들을 기록해 본다.
+            </p>
+
+            <div class="magazine-row">
+                <h3><span class="tag tag-blue">TRAVEL</span> 대관령 여행</h3>
+                <p>
+                    작게는 양재천부터 시작해 멀리는 대관령까지 가서 풍차를 구경했다. 거기까지 가는데 로이가 차 안에서 구토를 좀 했다. 
+                    마음이 아프고 걱정스러웠지만, 그래도 목적지에 도착해서 함께 좋은 추억을 만들 수 있어서 참 좋았다.
+                </p>
+            </div>
+
+            <div class="magazine-row">
+                <h3><span class="tag tag-red">CAMPING</span> 반려동물 동반 카라반 캠핑</h3>
+                <p>
+                    로이를 데리고 카라반에 간 적도 있었다. 반려동물 동반 카라반이었는데, 
+                    로이를 여행 때 어디 맡기지 않고 가족과 항상 같이 여행할 수 있어서 무척 뜻깊고 좋았다.
+                </p>
+            </div>
+
+            <div class="magazine-row">
+                <h3><span class="tag tag-green">LIFE</span> 스타필드 몰 나들이</h3>
+                <p>
+                    스타필드 몰에 로이를 데리고 갈 때는 전용 가방에 넣고 가거나, 스타필드 내에서 대여해 주는 유모차를 빌려서 태우고 다닌다.
+                    생각보다 다른 강아지들이 많이 다녀서 주변 눈치가 보이지 않아 편안하게 다닐 수 있다.
+                </p>
+            </div>
+
+            <div class="epilogue-section">
+                <h3> 앞으로의 다짐</h3>
+                <p>
+                    "막상 추억을 쓰려고 보니 가본 곳이 엄청 많지는 않은 것 같다.
+                    아직은 반려동물 동반 서비스들이 널리 대중화되어 있지 않은 터이다.
+                    앞으로는 로이가 함께 갈 수 있는 곳들을 더 많이 찾아서 부지런히 다녀봐야겠다."
+                </p>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <h3 class="gallery-title">📸 Photo Gallery</h3>
+            
+            <div class="grid-box">
+                <div class="grid-item"><img src="travel1.png"></div>
+                <div class="grid-item"><img src="travel2.png"></div>
+                <div class="grid-item"><img src="travel3.png"></div>
+                <div class="grid-item"><img src="travel4.png"></div>
+                <div class="grid-item"><img src="travel5.png"></div>
+                <div class="grid-item"><img src="travel6.png"></div>
+                <div class="grid-item"><img src="travel7.png"></div>
+                <div class="grid-item"><img src="travel8.png"></div>
+            </div>
+        </div>
+
+        <div class="clear-fix"></div>
+
+    </div>
+    <footer>
+        <div id="left">
+            <ul id="email">
+                <li>kersey98@naver.com</li>
+                <li>sawyer@gachon.ac.kr</li>
+                <li>kerspective@gmail.com</li>
+                <li id="copyright">Copyright by Roy's Blog All Rights Reserved.</li>
+            </ul>
+        </div>
+        <div id="sns">
+            <h3>소셜 미디어를 팔로우하세요!</h3>
+            <select>
+                <option>네이버</option>
+                <option>페이스북</option>
+                <option>트위터</option>
+            </select>
+            <div id="icons">
+                <img src="facebook.png" alt="">
+                <img src="naverblog.png" alt="">
+                <img src="x.png" alt="">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로이 돌봄일기 블로그</title>
+<style>
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"맑은 고딕";
+    font-size:16px;
+    color:#000000;
+}
+ul{
+    list-style-type:none;
+    margin:0;
+}
+#page{
+    width:100%;
+    margin:0 auto;
+}
+header #top_menu{
+    float:right;
+    margin:15px 20px 0 0;
+}
+header #top_menu li{
+    display:inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo{
+    width:400px;
+    max-width: 100%;
+    margin-bottom:10px;
+}
+.line{
+    margin-top:10px;
+    border-top:solid 1px #cccccc;
+}
+.line2{
+    border-top:solid 1px #cccccc;
+}
+
+header nav {
+    width: 100%;
+    display: block;
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; 
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; 
+}
+
+.content-wrapper {
+    overflow: auto;
+    padding-top: 15px;
+}
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; 
+}
+
+footer ul{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+footer #left{
+    float:left;
+}
+footer #sns{
+    float:right;
+}
+footer #email li{
+    margin-top:5px;
+}
+footer #copyright{
+    margin-top:10px;
+    font-size:11px;
+    color:#888888;
+}
+footer #sns h3{
+    margin-top:0;
+    margin-bottom:0;
+    font-size:16px;
+    color:#585858;
+}
+footer #sns select{
+    margin:5px 0 0 100px;
+    width:100px;
+    height:18px;
+    font-size:11px;
+}
+footer #icons{
+    margin-top:5px;
+    text-align:right;
+}
+footer #icons img{
+    width:25px;
+}
+footer li{
+    font-size:12px;
+}
+
+
+/* ===== menu03: 반려용품 쇼핑몰 스타일 레이아웃 (본문 폭 확대 수정) ===== */
+
+.shop-container {
+    width: 96%;        /* 좌우 여백을 더 줄여서 가로 공간 확보 */
+    max-width: 1400px; /* 최대 폭을 1200px에서 1400px로 넓혀 시원하게 배치 */
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.shop-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333333;
+    padding-bottom: 10px;
+}
+
+.product-list {
+    overflow: hidden; /* float 해제용 */
+}
+
+.product-item {
+    float: left;
+    width: 23%;        /* 한 줄에 4개 유지 */
+    margin: 1%;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    padding: 15px;     /* 폭이 넓어진 만큼 내부 여백 다시 확대 */
+    text-align: center;
+}
+
+.product-item img {
+    width: auto;
+    height: 150px;     /* 폭이 넓어진 비율에 맞춰 이미지 높이도 살짝 확대 */
+    object-fit: cover;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 12px;
+}
+
+.product-name {
+    font-size: 17px;   /* 상품명 글씨 크기 살짝 확대 */
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #d9534f;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-caption {
+    font-size: 13px;   /* 설명 글씨 가독성을 위해 살짝 확대 */
+    line-height: 1.5;
+    color: #666666;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-top: 1px dashed #cccccc;
+    text-align: left;
+}
+
+
+/* 모바일 화면 대응 미디어 쿼리 */
+@media only screen and (max-width: 1024px){
+    .product-item {
+        width: 48%;   /* 태블릿이나 애매한 화면 크기에서는 한 줄에 2개씩 */
+    }
+}
+
+@media only screen and (max-width: 620px){
+    .product-item {
+        float: none;
+        width: 98%;   /* 모바일 화면에서는 한 줄에 1개씩 꽉 차게 */
+        margin: 0 auto 20px auto;
+    }
+    .shop-title {
+        font-size: 24px;
+    }
+    .menu, .main, .right{
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div id="page">
+    
+    <header style="background-color:#faf9f4;">
+        <ul id="top_menu">
+            <li>로그인 | </li>
+            <li>방명록 | </li>
+            <li>서로이웃 | </li>
+            <li>쪽지쓰기 | </li>
+        </ul>
+        
+        <div class="logo-container">
+            <a href="index.html">
+            <img id="logo" src="logo.png">
+            </a>
+        </div>
+        <div class="line"></div>
+
+        <nav style="background-image:url('paper.png');">
+            <ul>
+                <li><a href="menu01.html"><img src="menu01.png"></a></li>
+                <li><a href="menu02.html"><img src="menu02.png"></a></li>
+                <li><a href="menu03.html"><img src="menu03.png"></a></li>
+                <li><a href="menu04.html"><img src="menu04.png"></a></li>
+                <li><a href="menu05.html"><img src="menu05.png"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="line2"></div>
+
+    <!-- 쇼핑몰 본문 영역 시작 -->
+    <div class="shop-container">
+        <div class="shop-title">
+            <img src="subtitle3.png">
+        </div>
+
+        <div class="product-list">
+
+            <!-- [1층] 상품 1 -->
+            <div class="product-item">
+                <img src="item1.png" alt="용품1">
+                <div class="product-name">이즈칸 시니어 밸런스 사료</div>
+                <div class="product-price">55,000원</div>
+                <div class="product-caption">
+                    로이가 슬개골 때문에 살이 찌면 안되는데 지방함량이 적당하면서 가격이 부담스럽지 않은 사료로 좋다.
+                </div>
+            </div>
+
+            <!-- [1층] 상품 2 -->
+            <div class="product-item">
+                <img src="item2.png" alt="용품2">
+                <div class="product-name">마로도스펫 동결건조 북어</div>
+                <div class="product-price">17,000원</div>
+                <div class="product-caption">
+                    동결건조 중에 제일 잘나가는 상품이 아닐까 싶다. 로이는 북어 맛을 제일 좋아한다. 살도 잘 안찌는 간식.
+                </div>
+            </div>
+
+            <!-- [1층] 상품 3 -->
+            <div class="product-item">
+                <img src="item3.png" alt="용품3">
+                <div class="product-name">노즈워크 담요</div>
+                <div class="product-price">15,000원</div>
+                <div class="product-caption">
+                    로이가 심심해하면 노즈워크 담요에 간식을 잘게 쪼개 숨겨두고 로이보고 찾으라 한다. 재밌는 놀이.
+                </div>
+            </div>
+
+            <!-- [1층] 상품 4 -->
+            <div class="product-item">
+                <img src="item4.png" alt="용품4">
+                <div class="product-name">하이포닉 강아지 샴푸</div>
+                <div class="product-price">18,000원</div>
+                <div class="product-caption">
+                    강아지 샴푸 중에 제일 유명한 것 같아서 샀다. 펫박람회에서 사면 좀더 싸게 살 수 있다. 향도 나쁘지 않다.
+                </div>
+            </div>
+
+            <!-- [2층] 상품 5 -->
+            <div class="product-item">
+                <img src="item5.png" alt="용품5">
+                <div class="product-name">허독 하네스</div>
+                <div class="product-price">12,000원</div>
+                <div class="product-caption">
+                    매일 나가는 산책 필수품! 목에 무리가 가기 않고 가슴을 안정적으로 감싸주는 H형 하네스이다. 파란색이 잘어울린다.
+                </div>
+            </div>
+
+            <!-- [2층] 상품 6 -->
+            <div class="product-item">
+                <img src="item6.png" alt="용품6">
+                <div class="product-name">펫바오 리드줄</div>
+                <div class="product-price">12,000원</div>
+                <div class="product-caption">
+                    자동 리드줄이다. 강아지를 컨트롤하는데 자동 리드줄이 일반 리드줄보다 훨씬 편하다. 색은 흰색이라 때가 탔다.
+                </div>
+            </div>
+
+            <!-- [2층] 상품 7 -->
+            <div class="product-item">
+                <img src="item7.png" alt="용품7">
+                <div class="product-name">강아지 먼지방지 방석</div>
+                <div class="product-price">30,000원</div>
+                <div class="product-caption">
+                    강아지용 먼지 방지 방석인데 디자인이 깔끔해서 인테리어용으로도 잘 어울린다. 로이가 잘 애용한다.
+                </div>
+            </div>
+
+            <!-- [2층] 상품 8 -->
+            <div class="product-item">
+                <img src="item8.png" alt="용품8">
+                <div class="product-name">정직한 배변패드</div>
+                <div class="product-price">20,000원</div>
+                <div class="product-caption">
+                    네이버쇼핑에서 주기적으로 400매씩 사는 배변패드. 절약형을 쓰면 부담없이 패드를 교체할 수 있다.
+                </div>
+            </div>
+
+        </div> <!-- product-list 끝 -->
+
+    </div> 
+    <!-- 쇼핑몰 본문 영역 끝 -->
+
+    <footer>
+        <div id="left">
+            <ul id="email">
+                <li>kersey98@naver.com</li>
+                <li>sawyer@gachon.ac.kr</li>
+                <li>kerspective@gmail.com</li>
+                <li id="copyright">Copyright by Roy's Blog All Rights Reserved.</li>
+            </ul>
+        </div>
+        <div id="sns">
+            <h3>소셜 미디어를 팔로우하세요!</h3>
+            <select>
+                <option>네이버</option>
+                <option>페이스북</option>
+                <option>트위터</option>
+            </select>
+            <div id="icons">
+                <img src="facebook.png" alt="">
+                <img src="naverblog.png" alt="">
+                <img src="x.png" alt="">
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
