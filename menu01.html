@@ -174,10 +174,19 @@ footer li{
 
 /* ================= 반응형 모바일 설정 ================= */
 @media only screen and (max-width: 768px){
+    /* 사진을 감싸는 박스를 flex로 변경하여 정렬 */
+    .photo-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2%; /* 사진 사이의 간격 */
+    }
+    
     .photo-grid img{
-        width: 98%;   
-        height: auto;
-        margin: 1% 1% 10px 1%;
+        float: none; /* 기존 float 해제 */
+        width: 49%;  /* 2개씩 배치 (49% + 49% + 간격 2% = 100%) */
+        height: 180px; /* 고정할 적절한 모바일 높이 지정 (원하는 크기로 조절 가능) */
+        object-fit: cover; /* 이미지가 깨지거나 찌그러지지 않도록 크롭 */
+        margin: 0 0 10px 0;
     }
     .diary-title{
         font-size: 24px;
