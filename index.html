@@ -147,14 +147,15 @@ header nav li img {
     margin-top:7px;
     margin-bottom:7px;
 }
-.left{
-    border:solid 1px #d4b982;
-    float:left;
-    width:30%;
-    padding:10px 15px 15px 15px;
-    margin-top:7px;
-    margin-bottom:7px;
-    text-align:center;
+.left {
+    border: solid 1px #d4b982;
+    float: left;
+    width: 30%;
+    padding: 10px 15px 15px 15px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: center;
+    box-sizing: border-box; /* 패딩이 너비에 영향을 주지 않도록 보장 */
 }
 .right img{
     margin-top:10px;
@@ -263,15 +264,18 @@ table,tr,th,td{
     border:solid 1px #cccccc;
     font-size:12px;
 }
-table{
-    margin-top:5px;
-    margin-left:8px;
-    margin-right:7px;
+table {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 0; /* 좌우 여백을 자동 정렬을 위해 초기화하거나 제거 */
+    margin-right: 0;
 }
-td{
-    text-align:left;
+td {
+    height: 50px;
+    width: 14.28%; /* 7일 등분 (100 / 7) */
+    text-align: left;
     vertical-align: top;
-    padding:5px;
+    padding: 5px;
 }
 td.sticker{
     position:relative;
@@ -320,10 +324,19 @@ td.sticker{
     display: block;
 }
 
-@media only screen and (max-width:620px){
-    /* 모바일 환경 스타일 */
-    .menu, .main, .right{
+@media only screen and (max-width: 620px) {
+    /* 달력(.left), 본문(.main), 우측(.right) 모두 한 줄에 하나씩 100% 차도록 설정 */
+    .left, .main, .right {
+        width: 100% !important;
+        float: none; /* float를 해제하여 아래로 자연스럽게 떨어지게 만듭니다 */
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* 프로필 박스 여백 조정 (모바일에서 삐져나가지 않도록) */
+    .royprofile, .myprofile {
         width: 100%;
+        margin-left: 0;
     }
 }
 </style>
