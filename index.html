@@ -194,15 +194,15 @@ header nav li img {
     margin-bottom:10px;
 }
 
+/* PC 버전 푸터 기본 스타일 */
 footer {
     clear: both; 
     background-color: #ececec;
     padding: 15px;
     margin-top: 7px;
     color: #666666;
-    overflow: hidden; /* ★ 이 줄을 추가해 주세요! */
+    overflow: hidden;
 }
-
 footer ul{
     list-style-type:none;
     padding:0px;
@@ -245,7 +245,6 @@ footer li{
     font-size:12px;
 }
 
-
 th{
     background-color:beige;
 }
@@ -267,12 +266,12 @@ table,tr,th,td{
 table {
     width: 100%;
     margin-top: 5px;
-    margin-left: 0; /* 좌우 여백을 자동 정렬을 위해 초기화하거나 제거 */
+    margin-left: 0;
     margin-right: 0;
 }
 td {
     height: 50px;
-    width: 14.28%; /* 7일 등분 (100 / 7) */
+    width: 14.28%;
     text-align: left;
     vertical-align: top;
     padding: 5px;
@@ -282,23 +281,19 @@ td.sticker{
 }
 .sticker img{
     width:20px;
-    position: absolute; /* 부모인 td를 기준으로 자유롭게 이동 */
-    right: 3px;         /* 오른쪽에서 5px 띄움 */
+    position: absolute;
+    right: 3px;
     top: 3px;
 }
 
-/* 1. 상단 float 요소들의 영향을 차단하기 위해 clear 추가 */
 #banner {
     width: 100%;
     clear: both; 
     height: 120px;
     background-color: #f9e8c8;
-    margin-top: 15px; /* 본문과의 간격 확보 */
-    
-    /* 💡 아래의 속성을 추가해 주시면 화면을 벗어나는 배너들이 깔끔하게 숨겨집니다! */
+    margin-top: 15px;
     overflow: hidden; 
 }
-/* 2. 실제 자식 요소들을 품고 있는 ul에 Flexbox를 적용 */
 #banner ul {
     list-style: none;
     padding: 0;
@@ -306,37 +301,101 @@ td.sticker{
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;  /* 수평 중앙 정렬 */
-    align-items: center;      /* 수직 중앙 정렬 */
-    flex-wrap: nowrap;        /* 화면이 좁아져도 아래로 떨어지지 않도록 설정 */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
-
-/* 3. li 내부의 이미지들이 부모 높이에 맞춰 알맞게 조절되도록 설정 */
 #banner li {
     display: flex;
     align-items: center;
-    margin: 0 15px; /* 이미지 간의 좌우 간격 조절 (기존 35px은 넓어서 넘칠 수 있음) */
+    margin: 0 15px;
 }
-
 #banner li img {
-    max-height: 90px; /* 배너 바 높이에 맞게 이미지 크기 제한 */
+    max-height: 90px;
     width: auto;
     display: block;
 }
 
+/* ================= 반응형 모바일 설정 (화면 너비 620px 이하) ================= */
 @media only screen and (max-width: 620px) {
-    /* 달력(.left), 본문(.main), 우측(.right) 모두 한 줄에 하나씩 100% 차도록 설정 */
+
+    /* ======= [추가] 광고 배너 모바일 반응형 조절 ======= */
+    #banner {
+        height: auto !important;      /* 고정 높이(120px)를 해제하여 배너가 아래로 쌓이도록 설정 */
+        padding: 15px 10px !important; /* 모바일에서의 내부 여백 부여 */
+    }
+    #banner ul {
+        flex-wrap: wrap !important;   /* 화면 폭이 좁아지면 배너들이 아래 줄로 자동 줄바꿈 */
+        gap: 10px !important;         /* 배너 이미지들 사이의 상하좌우 간격 설정 */
+    }
+    #banner li {
+        margin: 0 !important;         /* 기존 PC 버전의 고정 마진 초기화 */
+        flex: 1 1 calc(33.33% - 10px); /* 모바일 화면에서 배너가 한 줄에 3개씩 균등 배치되도록 설정 */
+        justify-content: center;
+    }
+    #banner li img {
+        max-height: 50px !important;  /* 모바일 화면 크기에 맞게 이미지 높이 축소 */
+        width: 100% !important;
+        object-fit: contain;          /* 이미지 비율 유지하며 박스에 맞춤 */
+    }
+    
+    /* 만약 배너 구분선(bannerbar.png) 이미지가 모바일에서 보기 싫게 따로 논다면 숨김 처리 */
+    #banner li:has(img[src="bannerbar.png"]) {
+        display: none !important;
+    }
+    /* =================================================== */
+    
     .left, .main, .right {
         width: 100% !important;
-        float: none; /* float를 해제하여 아래로 자연스럽게 떨어지게 만듭니다 */
+        float: none;
         margin-left: 0;
         margin-right: 0;
     }
     
-    /* 프로필 박스 여백 조정 (모바일에서 삐져나가지 않도록) */
     .royprofile, .myprofile {
         width: 100%;
         margin-left: 0;
+    }
+
+    /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
+    }
+    header #top_menu li {
+        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
+        color: #666666 !important;
+    }
+
+    /* 모바일 푸터를 Flexbox 레이아웃으로 변경하여 좌우 정렬 강제 유지 */
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important; /* 좌우 가로폭을 거의 반반씩 나눠 가짐 */
+    }
+
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all; /* 이메일 주소가 길어도 튀어나가지 않게 설정 */
+    }
+
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+
+    footer #sns select {
+        margin: 5px 0 0 0 !important; /* PC 버전의 margin-left: 100px 제거 */
+        width: 100% !important;        /* 모바일에서는 부모 너비에 꽉 차게 조절 */
+    }
+
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
     }
 }
 </style>
@@ -426,11 +485,11 @@ td.sticker{
             <td>23</td>
             <td>24</td>
             <td>25</td>
-            <td class="saturday">26</td>
+            <td>2</td>
+            <td class="saturday">27</td>
         </tr>
         <tr>
-            <td class="sunday">27</td>
-            <td class="saturday">28</td>
+            <td class="sunday">28</td>
             <td>29</td>
             <td></td>
             <td></td>
@@ -440,9 +499,7 @@ td.sticker{
     </table>
         </div>
 
-        <!-- 가운데 본문 영역 -->
         <div class="main">
-            <!-- 로이 프로필 박스 -->
             <div class="royprofile">
                 <div class="mainleft">
                     <img src="mainroy.png" alt="로이 사진" height="150px" style="width:170px;">
@@ -458,7 +515,6 @@ td.sticker{
                 </div>
             </div> 
             
-            <!-- 주인장 프로필 박스 -->
             <div class="myprofile">
                 <div class="mainleft">
                     <img src="user.png" alt="주인장 사진" height="130px" style="width:115px;">
@@ -476,7 +532,6 @@ td.sticker{
 
         <div class="right">
             <div id="visitor">
-                <!--<h2>방명록</h2>-->
                 <img src="visitor.png" alt="" height="60px">
                 <ul>
                     <li>
@@ -501,7 +556,6 @@ td.sticker{
             <div class="line"></div>
 
             <div id="notice">
-                <!--<h2>주인장 공지사항</h2>-->
                 <img src="notice.png" alt="" height="60px">
                 <ul>
                     <li>

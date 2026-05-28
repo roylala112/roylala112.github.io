@@ -51,7 +51,6 @@ header #top_menu li{
     border-top:solid 1px #cccccc;
 }
 
-/* ★ nav바의 세로 길이가 이미지에 맞춰 유연하게 줄어들도록 설정 */
 header nav {
     width: 100%;
     display: block;
@@ -62,7 +61,7 @@ header nav ul {
     gap: 7%;                   
     align-items: center;       
     flex-wrap: nowrap;         
-    padding: 5px 0; /* 위아래 불필요한 고정 여백 최소화 */
+    padding: 5px 0; 
 }
 header nav li {
     flex-shrink: 1;            
@@ -72,7 +71,7 @@ header nav li img {
     width: 100%;               
     max-width: 200px;          
     height: auto;              
-    display: block; /* 이미지 아래에 브라우저가 임의로 만드는 미세한 공백 제거 */
+    display: block; 
 }
 
 .shop-title {
@@ -93,7 +92,6 @@ header nav li img {
     margin: 0 auto;
     padding: 30px 20px;
 }
-
 .story-container {
     float: left;
     width: 58%;
@@ -108,8 +106,6 @@ header nav li img {
     border-left: 3px solid #888888;
     padding-left: 15px;
 }
-
-
 .magazine-row {
     margin-bottom: 15px;
     padding-bottom: 20px;
@@ -121,7 +117,6 @@ header nav li img {
     display: flex;
     align-items: center;
 }
-/* 카테고리 태그 디자인 */
 .magazine-row h3 .tag {
     font-size: 11px;
     font-weight: normal;
@@ -139,8 +134,6 @@ header nav li img {
     color: #555555;
     margin-bottom: 0;
 }
-
-/* 완전히 형태를 바꾼 하단 에필로그 한 줄 영역 */
 .epilogue-section {
     margin-top: 35px;
     padding: 20px 0;
@@ -158,9 +151,6 @@ header nav li img {
     font-style: italic;
     margin-bottom: 0;
 }
-
-
-/* 오른쪽 사진 갤러리 레이아웃 */
 .gallery-container {
     float: right;
     width: 38%;
@@ -178,8 +168,6 @@ header nav li img {
     border-bottom: 1px dashed #dddddd;
     padding-bottom: 10px;
 }
-
-/* 2x2 사진 그리드 시스템 */
 .grid-box {
     display: flex;
     flex-wrap: wrap;
@@ -193,6 +181,7 @@ header nav li img {
     padding: 5px;
     background: #ffffff;
     text-align: center;
+    box-sizing: border-box; 
 }
 .grid-item img {
     width: 100%;
@@ -201,23 +190,19 @@ header nav li img {
     display: block;
     border-radius: 4px;
 }
-
-/* 하단 footer 밀림 방지 */
 .clear-fix {
     clear: both;
 }
 
-/* ========================================== */
-
+/* PC 버전 푸터 기본 스타일 */
 footer {
     clear: both; 
     background-color: #ececec;
     padding: 15px;
     margin-top: 7px;
     color: #666666;
-    overflow: hidden; /* ★ 이 줄을 추가해 주세요! */
+    overflow: hidden; 
 }
-
 footer ul{
     list-style-type:none;
     padding:0px;
@@ -260,17 +245,93 @@ footer li{
     font-size:12px;
 }
 
+/* ================= PC에서 모바일로 줄어드는 중간 구간(태블릿) 대응 ================= */
+@media only screen and (max-width: 1024px) and (min-width: 621px) {
+    .story-container {
+        width: 52% !important; 
+        padding-right: 10px !important;
+    }
+    .gallery-container {
+        width: 45% !important; 
+        padding: 12px !important; 
+    }
+    .gallery-container .grid-box {
+        gap: 8px !important;   
+    }
+    .grid-item {
+        width: 48% !important; 
+    }
+    .grid-item img {
+        height: 110px !important; 
+    }
+}
 
+/* ================= 반응형 모바일 설정 (620px 이하) ================= */
 @media only screen and (max-width:620px){
-    /* 모바일 환경 스타일 */
+    
+    /* ======= 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important;
+    }
+    header #top_menu li {
+        font-size: 12px !important;       
+        color: #666666 !important;
+    }
+
     .menu, .main, .right{
         width: 100%;
     }
-    /* 모바일 환경에서 1단으로 떨어지도록 조절 */
+
+    /* 본문글이 먼저 다 나오고, 그 아래로 갤러리가 100% 폭으로 예쁘게 떨어지도록 설정 */
     .story-container, .gallery-container {
-        width: 100%;
-        float: none;
-        margin-bottom: 20px;
+        width: 100% !important;
+        float: none !important;
+        margin-bottom: 25px;
+        padding-right: 0 !important;
+    }
+
+    /* 모바일 갤러리 2열 격자 구조 유지 강제 설정 */
+    .gallery-container .grid-box {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important; 
+        gap: 4% !important;                    
+    }
+
+    .gallery-container .grid-item {
+        width: 48% !important;                 
+        margin-bottom: 12px !important;
+    }
+
+    .gallery-container .grid-item img {
+        height: 140px !important;              
+    }
+
+    /* 모바일 푸터 레이아웃 교정 */
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important;
+    }
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all;
+    }
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+    footer #sns select {
+        margin: 5px 0 0 0 !important;
+        width: 100% !important;
+    }
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
     }
 }
 </style>
@@ -338,7 +399,7 @@ footer li{
                 <h3><span class="tag tag-green">LIFE</span> 스타필드 몰 나들이</h3>
                 <p>
                     스타필드 몰에 로이를 데리고 갈 때는 전용 가방에 넣고 가거나, 스타필드 내에서 대여해 주는 유모차를 빌려서 태우고 다닌다.
-                    생각보다 다른 강아지들이 많이 다녀서 주변 눈치가 보이지 않아 편안하게 다닐 수 있다.
+                    생각보다 다른 강아지들이 많이 다녀서 주변 눈치가 보이지 않아 편안하게 다닐 수 Ust.
                 </p>
             </div>
 
@@ -370,6 +431,7 @@ footer li{
         <div class="clear-fix"></div>
 
     </div>
+    
     <footer>
         <div id="left">
             <ul id="email">

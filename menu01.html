@@ -78,6 +78,8 @@ header nav li img {
     overflow: auto;
     padding-top: 15px;
 }
+
+/* PC 버전 푸터 기본 스타일 */
 footer {
     clear: both; 
     background-color: #ececec;
@@ -86,7 +88,6 @@ footer {
     color: #666666;
     overflow: hidden; 
 }
-
 footer ul{
     list-style-type:none;
     padding:0px;
@@ -129,39 +130,33 @@ footer li{
     font-size:12px;
 }
 
-
 /* ===== diary page ===== */
-
 .diary-container{
     width: 90%;
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
 }
-
 .diary-title{
     text-align: center;
     font-size: 32px;
     margin-bottom: 20px;
     color: #5b4636;
 }
-
 .photo-grid{
-    overflow: hidden; /* float 해제용 */
+    overflow: hidden; 
     margin-bottom: 30px;
 }
-
 .photo-grid img{
     float: left;
-    width: 48%;       /* 한 줄에 2개씩 배치 */
-    margin: 1%;       /* 이미지 사이 간격 */
+    width: 48%;       
+    margin: 1%;       
     height: 300px;
     object-fit: cover;
     border: 1px solid #cccccc;
 }
-
 .diary-paper{
-    clear: both;      /* 위에서 쓴 float 초기화 */
+    clear: both;      
     background: #fffdf7;
     padding: 30px;
     border: 1px solid #e2d8c7;
@@ -169,15 +164,14 @@ footer li{
     font-size: 16px;
     color: #4d4035;
 }
-
 .diary-paper p{
     margin-bottom: 20px;
 }
 
-/* 미디어 쿼리도 복잡한 것 다 빼고 모바일 화면 하나로만 단순화 */
+/* ================= 반응형 모바일 설정 ================= */
 @media only screen and (max-width: 768px){
     .photo-grid img{
-        width: 98%;   /* 모바일에서는 한 줄에 1개씩 꽉 차게 */
+        width: 98%;   
         height: auto;
         margin: 1% 1% 10px 1%;
     }
@@ -188,8 +182,47 @@ footer li{
         padding: 20px;
         font-size: 15px;
     }
+}
+
+@media only screen and (max-width: 620px){
     .menu, .main, .right{
         width: 100%;
+    }
+
+        /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
+    }
+    header #top_menu li {
+        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
+        color: #666666 !important;
+    }
+
+    /* 모바일 푸터 레이아웃 교정 */
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important;
+    }
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all;
+    }
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+    footer #sns select {
+        margin: 5px 0 0 0 !important;
+        width: 100% !important;
+    }
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
     }
 }
 </style>
@@ -227,7 +260,6 @@ footer li{
     <div class="line2"></div>
 
 <div class="diary-container">
-<!-- <h1 class="diary-title">로이와 첫만남</h1> -->
  <div class="diary-title">
     <img src="subtitle1.png" alt="로이와 첫만남">
 </div>

@@ -78,6 +78,8 @@ header nav li img {
     overflow: auto;
     padding-top: 15px;
 }
+
+/* PC 버전 푸터 기본 스타일 */
 footer {
     clear: both; 
     background-color: #ececec;
@@ -86,7 +88,6 @@ footer {
     color: #666666;
     overflow: hidden; 
 }
-
 footer ul{
     list-style-type:none;
     padding:0px;
@@ -129,16 +130,13 @@ footer li{
     font-size:12px;
 }
 
-
-/* ===== menu03: 반려용품 쇼핑몰 스타일 레이아웃 (본문 폭 확대 수정) ===== */
-
+/* ===== menu03: 반려용품 쇼핑몰 스타일 레이아웃 ===== */
 .shop-container {
-    width: 96%;        /* 좌우 여백을 더 줄여서 가로 공간 확보 */
-    max-width: 1400px; /* 최대 폭을 1200px에서 1400px로 넓혀 시원하게 배치 */
+    width: 96%;        
+    max-width: 1400px; 
     margin: 40px auto;
     padding: 10px;
 }
-
 .shop-title {
     text-align: center;
     font-size: 32px;
@@ -146,45 +144,39 @@ footer li{
     color: #333333;
     padding-bottom: 10px;
 }
-
 .product-list {
-    overflow: hidden; /* float 해제용 */
+    overflow: hidden; 
 }
-
 .product-item {
     float: left;
-    width: 23%;        /* 한 줄에 4개 유지 */
+    width: 23%;        
     margin: 1%;
     background-color: #ffffff;
     border: 1px solid #e1e1e1;
-    padding: 15px;     /* 폭이 넓어진 만큼 내부 여백 다시 확대 */
+    padding: 15px;     
     text-align: center;
 }
-
 .product-item img {
     width: auto;
-    height: 150px;     /* 폭이 넓어진 비율에 맞춰 이미지 높이도 살짝 확대 */
+    height: 150px;     
     object-fit: cover;
     border-bottom: 1px solid #eeeeee;
     margin-bottom: 12px;
 }
-
 .product-name {
-    font-size: 17px;   /* 상품명 글씨 크기 살짝 확대 */
+    font-size: 17px;   
     font-weight: bold;
     color: #333333;
     margin-bottom: 6px;
 }
-
 .product-price {
     font-size: 16px;
     color: #d9534f;
     font-weight: bold;
     margin-bottom: 10px;
 }
-
 .product-caption {
-    font-size: 13px;   /* 설명 글씨 가독성을 위해 살짝 확대 */
+    font-size: 13px;   
     line-height: 1.5;
     color: #666666;
     background-color: #f9f9f9;
@@ -193,18 +185,26 @@ footer li{
     text-align: left;
 }
 
-
-/* 모바일 화면 대응 미디어 쿼리 */
+/* ================= 반응형 모바일 설정 ================= */
 @media only screen and (max-width: 1024px){
     .product-item {
-        width: 48%;   /* 태블릿이나 애매한 화면 크기에서는 한 줄에 2개씩 */
+        width: 48%;   
+    }
+
+        /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
+    }
+    header #top_menu li {
+        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
+        color: #666666 !important;
     }
 }
 
 @media only screen and (max-width: 620px){
     .product-item {
         float: none;
-        width: 98%;   /* 모바일 화면에서는 한 줄에 1개씩 꽉 차게 */
+        width: 98%;   
         margin: 0 auto 20px auto;
     }
     .shop-title {
@@ -212,6 +212,33 @@ footer li{
     }
     .menu, .main, .right{
         width: 100%;
+    }
+
+    /* 모바일 푸터 레이아웃 교정 */
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important;
+    }
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all;
+    }
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+    footer #sns select {
+        margin: 5px 0 0 0 !important;
+        width: 100% !important;
+    }
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
     }
 }
 </style>
@@ -247,7 +274,6 @@ footer li{
 
     <div class="line2"></div>
 
-    <!-- 쇼핑몰 본문 영역 시작 -->
     <div class="shop-container">
         <div class="shop-title">
             <img src="subtitle3.png">
@@ -255,7 +281,6 @@ footer li{
 
         <div class="product-list">
 
-            <!-- [1층] 상품 1 -->
             <div class="product-item">
                 <img src="item1.png" alt="용품1">
                 <div class="product-name">이즈칸 시니어 밸런스 사료</div>
@@ -265,7 +290,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [1층] 상품 2 -->
             <div class="product-item">
                 <img src="item2.png" alt="용품2">
                 <div class="product-name">마로도스펫 동결건조 북어</div>
@@ -275,7 +299,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [1층] 상품 3 -->
             <div class="product-item">
                 <img src="item3.png" alt="용품3">
                 <div class="product-name">노즈워크 담요</div>
@@ -285,7 +308,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [1층] 상품 4 -->
             <div class="product-item">
                 <img src="item4.png" alt="용품4">
                 <div class="product-name">하이포닉 강아지 샴푸</div>
@@ -295,7 +317,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [2층] 상품 5 -->
             <div class="product-item">
                 <img src="item5.png" alt="용품5">
                 <div class="product-name">허독 하네스</div>
@@ -305,7 +326,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [2층] 상품 6 -->
             <div class="product-item">
                 <img src="item6.png" alt="용품6">
                 <div class="product-name">펫바오 리드줄</div>
@@ -315,7 +335,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [2층] 상품 7 -->
             <div class="product-item">
                 <img src="item7.png" alt="용품7">
                 <div class="product-name">강아지 먼지방지 방석</div>
@@ -325,7 +344,6 @@ footer li{
                 </div>
             </div>
 
-            <!-- [2층] 상품 8 -->
             <div class="product-item">
                 <img src="item8.png" alt="용품8">
                 <div class="product-name">정직한 배변패드</div>
@@ -335,10 +353,9 @@ footer li{
                 </div>
             </div>
 
-        </div> <!-- product-list 끝 -->
+        </div> 
 
     </div> 
-    <!-- 쇼핑몰 본문 영역 끝 -->
 
     <footer>
         <div id="left">

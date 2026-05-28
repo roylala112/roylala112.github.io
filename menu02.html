@@ -78,6 +78,8 @@ header nav li img {
     overflow: auto;
     padding-top: 15px;
 }
+
+/* PC 버전 푸터 기본 스타일 */
 footer {
     clear: both; 
     background-color: #ececec;
@@ -86,7 +88,6 @@ footer {
     color: #666666;
     overflow: hidden; 
 }
-
 footer ul{
     list-style-type:none;
     padding:0px;
@@ -129,9 +130,7 @@ footer li{
     font-size:12px;
 }
 
-
 /* ===== menu02: 로이의 세상 페이지 스타일 ===== */
-
 .world-container {
     width: 90%;
     max-width: 850px;
@@ -145,16 +144,13 @@ footer li{
     color: #333333;
     padding-bottom: 10px;
 }
-/* 이미지와 글을 감싸는 하나의 구역(Box) */
 .story-box {
-    overflow: hidden; /* float 해제용 */
+    overflow: hidden; 
     margin-bottom: 50px;
     background-color: #fcfcfc;
     border: 1px solid #eeeeee;
     padding: 25px;
 }
-
-/* 왼쪽에 배치할 이미지 스타일 */
 .story-img {
     float: left;
     width: 35%;
@@ -162,29 +158,34 @@ footer li{
     object-fit: cover;
     border: 1px solid #dddddd;
 }
-
-/* 오른쪽에 배치할 텍스트 스타일 */
 .story-text {
     float: right;
     width: 60%;
     padding-left: 10px;
 }
-
 .story-text h2 {
     font-size: 22px;
     color: #5b4636;
     margin-bottom: 15px;
 }
-
 .story-text p {
     font-size: 16px;
     line-height: 1.7;
     color: #555555;
 }
 
-
-/* 모바일 환경 대응 기본 미디어 쿼리 */
+/* ================= 반응형 모바일 설정 ================= */
 @media only screen and (max-width: 768px){
+
+        /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
+    }
+    header #top_menu li {
+        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
+        color: #666666 !important;
+    }
+    
     .story-box {
         padding: 15px;
     }
@@ -207,6 +208,33 @@ footer li{
 @media only screen and (max-width:620px){
     .menu, .main, .right{
         width: 100%;
+    }
+
+    /* 모바일 푸터 레이아웃 교정 */
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important;
+    }
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all;
+    }
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+    footer #sns select {
+        margin: 5px 0 0 0 !important;
+        width: 100% !important;
+    }
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
     }
 }
 </style>
@@ -243,14 +271,11 @@ footer li{
 
     <div class="line2"></div>
 
-    <!-- 본문 내용 시작 -->
     <div class="world-container">
-        <!-- <h1 class="world-title">로이의 세상</h1> -->
           <div class="world-title">
             <img src="subtitle2.png">
         </div>
         
-        <!-- 첫 번째 스토리: 일상 -->
         <div class="story-box">
             <img class="story-img" src="world1.jpg" alt="로이의 일상">
             <div class="story-text">
@@ -263,7 +288,6 @@ footer li{
             </div>
         </div>
 
-        <!-- 두 번째 스토리: 특별한 일과 목욕 -->
         <div class="story-box">
             <img class="story-img" src="world2.jpg">
             <div class="story-text">
@@ -276,7 +300,6 @@ footer li{
             </div>
         </div>
 
-        <!-- 세 번째 스토리: 강아지 친구들 -->
         <div class="story-box">
             <img class="story-img" src="world3.jpg" alt="강아지 친구">
             <div class="story-text">
@@ -290,7 +313,6 @@ footer li{
         </div>
 
     </div>
-    <!-- 본문 내용 끝 -->
 
     <footer>
         <div id="left">
