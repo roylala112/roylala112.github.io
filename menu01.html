@@ -172,74 +172,113 @@ footer li{
     margin-bottom: 20px;
 }
 
-/* ================= 반응형 모바일 설정 ================= */
-@media only screen and (max-width: 768px){
-    /* 사진을 감싸는 박스를 flex로 변경하여 정렬 */
-    .photo-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2%; /* 사진 사이의 간격 */
-    }
-    
-    .photo-grid img{
-        float: none; /* 기존 float 해제 */
-        width: 49%;  /* 2개씩 배치 (49% + 49% + 간격 2% = 100%) */
-        height: 180px; /* 고정할 적절한 모바일 높이 지정 (원하는 크기로 조절 가능) */
-        object-fit: cover; /* 이미지가 깨지거나 찌그러지지 않도록 크롭 */
-        margin: 0 0 10px 0;
-    }
-    .diary-title{
-        font-size: 24px;
-    }
-    .diary-paper{
-        padding: 20px;
-        font-size: 15px;
-    }
+#banner {
+    width: 100%;
+    clear: both; 
+    height: 120px;
+    background-color: #f9e8c8;
+    margin-top: 15px;
+    overflow: hidden; 
+}
+#banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+#banner li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+#banner li img {
+    max-height: 90px;
+    width: auto;
+    display: block;
 }
 
-@media only screen and (max-width: 620px){
-    .menu, .main, .right{
+/* ================= 반응형 모바일 설정 (화면 너비 620px 이하) ================= */
+@media only screen and (max-width: 620px) {
+
+    /* ======= [추가] 광고 배너 모바일 반응형 조절 ======= */
+    #banner {
+        height: auto !important;      /* 고정 높이(120px)를 해제하여 배너가 아래로 쌓이도록 설정 */
+        padding: 15px 10px !important; /* 모바일에서의 내부 여백 부여 */
+    }
+    #banner ul {
+        flex-wrap: wrap !important;   /* 화면 폭이 좁아지면 배너들이 아래 줄로 자동 줄바꿈 */
+        gap: 10px !important;         /* 배너 이미지들 사이의 상하좌우 간격 설정 */
+    }
+    #banner li {
+        margin: 0 !important;         /* 기존 PC 버전의 고정 마진 초기화 */
+        flex: 1 1 calc(33.33% - 10px); /* 모바일 화면에서 배너가 한 줄에 3개씩 균등 배치되도록 설정 */
+        justify-content: center;
+    }
+    #banner li img {
+        max-height: 50px !important;  /* 모바일 화면 크기에 맞게 이미지 높이 축소 */
+        width: 100% !important;
+        object-fit: contain;          /* 이미지 비율 유지하며 박스에 맞춤 */
+    }
+    
+    /* 만약 배너 구분선(bannerbar.png) 이미지가 모바일에서 보기 싫게 따로 논다면 숨김 처리 */
+    #banner li:has(img[src="bannerbar.png"]) {
+        display: none !important;
+    }
+    /* =================================================== */
+    
+    .left, .main, .right {
+        width: 100% !important;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .royprofile, .myprofile {
         width: 100%;
+        margin-left: 0;
     }
 
-    /* 서브타이틀 모바일 절대 크기 고정 */
-    .diary-title img {
-        width: 210px !important;  
-        height: auto !important;
-        margin: 0 auto;
-    }
-
-    /* 상단 우측 메뉴 모바일 반응형 조절 */
+    /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
     header #top_menu {
-        margin: 10px 10px 0 0 !important; 
+        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
     }
     header #top_menu li {
-        font-size: 12px !important;       
+        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
         color: #666666 !important;
     }
 
-    /* 모바일 푸터 레이아웃 교정 */
+    /* 모바일 푸터를 Flexbox 레이아웃으로 변경하여 좌우 정렬 강제 유지 */
     footer {
         display: flex !important;
         justify-content: space-between !important;
         align-items: flex-start !important;
         padding: 15px 10px !important;
     }
+
     footer #left, footer #sns {
         float: none !important;
-        width: 48% !important;
+        width: 48% !important; /* 좌우 가로폭을 거의 반반씩 나눠 가짐 */
     }
+
     footer #email li {
         font-size: 11px !important;
-        word-break: break-all;
+        word-break: break-all; /* 이메일 주소가 길어도 튀어나가지 않게 설정 */
     }
+
     footer #sns h3 {
         font-size: 13px !important;
     }
+
     footer #sns select {
-        margin: 5px 0 0 0 !important;
-        width: 100% !important;
+        margin: 5px 0 0 0 !important; /* PC 버전의 margin-left: 100px 제거 */
+        width: 100% !important;        /* 모바일에서는 부모 너비에 꽉 차게 조절 */
     }
+
     footer #icons {
         text-align: right !important;
         margin-top: 8px !important;
@@ -314,7 +353,24 @@ footer li{
         </p>
     </div>
 
+    
 </div>
+
+    <div id="banner">
+        <ul>
+            <li><img src="banner01.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner02.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner03.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner04.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner05.png"></li>
+            <li><img src="bannerbar.png"></li>
+            <li><img src="banner06.png"></li>
+        </ul>
+    </div>
 
     <footer>
         <div id="left">
