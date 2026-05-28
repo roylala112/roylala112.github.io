@@ -143,6 +143,15 @@ footer li{
     margin-bottom: 20px;
     color: #333333;
     padding-bottom: 10px;
+    display: flex;            
+    justify-content: center;  
+    align-items: center;      
+}
+.world-title img {
+    max-width: 100%;  
+    height: auto;     
+    display: block;           
+    margin: 0 auto;           
 }
 .story-box {
     overflow: hidden; 
@@ -177,15 +186,22 @@ footer li{
 /* ================= 반응형 모바일 설정 ================= */
 @media only screen and (max-width: 768px){
 
-        /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
-    header #top_menu {
-        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
-    }
-    header #top_menu li {
-        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
-        color: #666666 !important;
+    /* 중간 화면 서브타이틀 절대 크기 고정 (1번 메뉴와 똑같이 일치) */
+    .world-title img {
+        width: 210px !important; 
+        height: auto !important;
+        margin: 0 auto;
     }
     
+    /* 상단 우측 메뉴 모바일 반응형 조절 */
+    header #top_menu {
+        margin: 10px 10px 0 0 !important; 
+    }
+    header #top_menu li {
+        font-size: 12px !important;       
+        color: #666666 !important;
+    }
+
     .story-box {
         padding: 15px;
     }
@@ -208,6 +224,13 @@ footer li{
 @media only screen and (max-width:620px){
     .menu, .main, .right{
         width: 100%;
+    }
+
+    /* 스마트폰 화면에서도 동일하게 절대 크기 고정 */
+    .world-title img {
+        width: 210px !important; 
+        height: auto !important;
+        margin: 0 auto;
     }
 
     /* 모바일 푸터 레이아웃 교정 */

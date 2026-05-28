@@ -144,6 +144,10 @@ footer li{
     color: #333333;
     padding-bottom: 10px;
 }
+.shop-title img {
+    max-width: 100%;  
+    height: auto;     
+}
 .product-list {
     overflow: hidden; 
 }
@@ -191,17 +195,25 @@ footer li{
         width: 48%;   
     }
 
-        /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
+    /* 상단 우측 메뉴 모바일 반응형 조절 */
     header #top_menu {
-        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
+        margin: 10px 10px 0 0 !important; 
     }
     header #top_menu li {
-        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
+        font-size: 12px !important;       
         color: #666666 !important;
     }
 }
 
 @media only screen and (max-width: 620px){
+
+    /* 서브타이틀 모바일 절대 크기 고정 (1번 메뉴와 통일) */
+    .shop-title img {
+        width: 210px !important; 
+        height: auto !important;
+        margin: 0 auto;
+    }
+
     .product-item {
         float: none;
         width: 98%;   
