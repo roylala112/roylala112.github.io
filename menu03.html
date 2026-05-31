@@ -4,335 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로이 돌봄일기 블로그</title>
+    <link rel="stylesheet" href="style.css">
 <style>
-*{
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
-}
-body{
-    font-family:"맑은 고딕";
-    font-size:16px;
-    color:#000000;
-}
-ul{
-    list-style-type:none;
-    margin:0;
-}
-#page{
-    width:100%;
-    margin:0 auto;
-}
-header #top_menu{
-    float:right;
-    margin:15px 20px 0 0;
-}
-header #top_menu li{
-    display:inline;
-    color: #444444;
-}
-.logo-container {
-    display: flex;
-    flex-direction: column;  
-    align-items: center;     
-    justify-content: center;      
-    clear: both;            
-}
-.logo-container #logo{
-    width:400px;
-    max-width: 100%;
-    margin-bottom:10px;
-}
-.line{
-    margin-top:10px;
-    border-top:solid 1px #cccccc;
-}
-.line2{
-    border-top:solid 1px #cccccc;
-}
-
-header nav {
-    width: 100%;
-    display: block;
-}
-header nav ul {
-    display: flex;             
-    justify-content: center;   
-    gap: 7%;                   
-    align-items: center;       
-    flex-wrap: nowrap;         
-    padding: 5px 0; 
-}
-header nav li {
-    flex-shrink: 1;            
-    min-width: 0;              
-}
-header nav li img {
-    width: 100%;               
-    max-width: 200px;          
-    height: auto;              
-    display: block; 
-}
-
-.content-wrapper {
-    overflow: auto;
-    padding-top: 15px;
-}
-
-/* PC 버전 푸터 기본 스타일 */
-footer {
-    clear: both; 
-    background-color: #ececec;
-    padding: 15px;
-    margin-top: 7px;
-    color: #666666;
-    overflow: hidden; 
-}
-footer ul{
-    list-style-type:none;
-    padding:0px;
-    margin:0px;
-}
-footer #left{
-    float:left;
-}
-footer #sns{
-    float:right;
-}
-footer #email li{
-    margin-top:5px;
-}
-footer #copyright{
-    margin-top:10px;
-    font-size:11px;
-    color:#888888;
-}
-footer #sns h3{
-    margin-top:0;
-    margin-bottom:0;
-    font-size:16px;
-    color:#585858;
-}
-footer #sns select{
-    margin:5px 0 0 100px;
-    width:100px;
-    height:18px;
-    font-size:11px;
-}
-footer #icons{
-    margin-top:5px;
-    text-align:right;
-}
-footer #icons img{
-    width:25px;
-}
-footer li{
-    font-size:12px;
-}
-
-#banner {
-    width: 100%;
-    clear: both; 
-    height: 120px;
-    background-color: #f9e8c8;
-    margin-top: 15px;
-    overflow: hidden; 
-}
-#banner ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-#banner li {
-    display: flex;
-    align-items: center;
-    margin: 0 15px;
-}
-#banner li img {
-    max-height: 90px;
-    width: auto;
-    display: block;
-}
-
-/* ===== menu03: 반려용품 쇼핑몰 스타일 레이아웃 ===== */
+/* ===== 3번 메뉴 전용 독자 스타일 ===== */
 .shop-container {
-    width: 96%;        
-    max-width: 1400px; 
+    width: 100%;
+    max-width: 1200px; 
     margin: 40px auto;
-    padding: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 .shop-title {
     text-align: center;
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #333333;
-    padding-bottom: 10px;
 }
 .shop-title img {
     max-width: 100%;  
     height: auto;     
 }
+
+/* 💡 중구난방이던 간격을 고정 픽셀로 통일 */
 .product-list {
-    overflow: hidden; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    width: 100%;
 }
+
 .product-item {
-    float: left;
-    width: 23%;        
-    margin: 1%;
+    display: flex;
+    flex-direction: column; 
+    /* 💡 4열 배치 정밀 계산: (전체 넓이 - 3개의 간격) / 4 */
+    width: calc((100% - (20px * 3)) / 4); 
     background-color: #ffffff;
     border: 1px solid #e1e1e1;
-    padding: 15px;     
+    padding: 20px;     
     text-align: center;
+    box-sizing: border-box;
+    border-radius: 6px;
 }
 .product-item img {
-    width: auto;
-    height: 150px;     
-    object-fit: cover;
+    max-width: 100%;     
+    height: 150px;       
+    object-fit: contain; 
     border-bottom: 1px solid #eeeeee;
-    margin-bottom: 12px;
+    margin: 0 auto 15px auto;
+    padding-bottom: 15px;
+    display: block;
 }
 .product-name {
-    font-size: 17px;   
+    font-size: 16px;   
     font-weight: bold;
     color: #333333;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 .product-price {
-    font-size: 16px;
+    font-size: 15px;
     color: #d9534f;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
+/* 설명 박스 상단 마진 자동 밀어내기 및 여백 일치 */
 .product-caption {
     font-size: 13px;   
-    line-height: 1.5;
+    line-height: 1.6;
     color: #666666;
     background-color: #f9f9f9;
-    padding: 10px;
-    border-top: 1px dashed #cccccc;
+    padding: 12px;
+    border-radius: 4px;
     text-align: left;
+    margin-top: auto; 
 }
 
-/* ================= 반응형 모바일 설정 ================= */
-@media only screen and (max-width: 1024px){
-    /* ======= [추가] 광고 배너 모바일 반응형 조절 ======= */
-    #banner {
-        height: auto !important;      /* 고정 높이(120px)를 해제하여 배너가 아래로 쌓이도록 설정 */
-        padding: 15px 10px !important; /* 모바일에서의 내부 여백 부여 */
-    }
-    #banner ul {
-        flex-wrap: wrap !important;   /* 화면 폭이 좁아지면 배너들이 아래 줄로 자동 줄바꿈 */
-        gap: 10px !important;         /* 배너 이미지들 사이의 상하좌우 간격 설정 */
-    }
-    #banner li {
-        margin: 0 !important;         /* 기존 PC 버전의 고정 마진 초기화 */
-        flex: 1 1 calc(33.33% - 10px); /* 모바일 화면에서 배너가 한 줄에 3개씩 균등 배치되도록 설정 */
-        justify-content: center;
-    }
-    #banner li img {
-        max-height: 50px !important;  /* 모바일 화면 크기에 맞게 이미지 높이 축소 */
-        width: 100% !important;
-        object-fit: contain;          /* 이미지 비율 유지하며 박스에 맞춤 */
+/* ================= 3번 메뉴 전용 태블릿 크기 구간 (621px ~ 1024px) 대응 ================= */
+@media only screen and (min-width: 621px) and (max-width: 1024px) {
+    .shop-container {
+        margin: 30px auto !important;
+        padding: 0 20px !important;
     }
     
-    /* 만약 배너 구분선(bannerbar.png) 이미지가 모바일에서 보기 싫게 따로 논다면 숨김 처리 */
-    #banner li:has(img[src="bannerbar.png"]) {
-        display: none !important;
+    .product-list {
+        gap: 20px !important; /* 태블릿에서도 일정한 간격 유지 */
     }
-    /* =================================================== */
 
+    /* 💡 중간 너비에서 정확하게 한 줄에 2개씩(2열) 정렬하는 계산식 */
     .product-item {
-        width: 48%;   
+        width: calc((100% - 20px) / 2) !important; 
+        padding: 20px !important;
     }
-
-    /* 상단 우측 메뉴 모바일 반응형 조절 */
-    header #top_menu {
-        margin: 10px 10px 0 0 !important; 
+    
+    .product-item img {
+        height: 160px !important;       
     }
-    header #top_menu li {
-        font-size: 12px !important;       
-        color: #666666 !important;
+    .shop-title img {
+        width: 250px !important;
+        height: auto !important;
+        margin: 0 auto !important;
     }
 }
 
-@media only screen and (max-width: 620px){
-
-    /* 서브타이틀 모바일 절대 크기 고정 (1번 메뉴와 통일) */
+/* ================= 3번 메뉴 전용 모바일 설정 (620px 이하) ================= */
+@media only screen and (max-width: 620px) {
     .shop-title img {
         width: 210px !important; 
         height: auto !important;
-        margin: 0 auto;
+        margin: 0 auto !important;
+        display: block !important;
     }
-
-    /* ======= [추가] 광고 배너 모바일 반응형 조절 ======= */
-    #banner {
-        height: auto !important;      /* 고정 높이(120px)를 해제하여 배너가 아래로 쌓이도록 설정 */
-        padding: 15px 10px !important; /* 모바일에서의 내부 여백 부여 */
-    }
-    #banner ul {
-        flex-wrap: wrap !important;   /* 화면 폭이 좁아지면 배너들이 아래 줄로 자동 줄바꿈 */
-        gap: 10px !important;         /* 배너 이미지들 사이의 상하좌우 간격 설정 */
-    }
-    #banner li {
-        margin: 0 !important;         /* 기존 PC 버전의 고정 마진 초기화 */
-        flex: 1 1 calc(33.33% - 10px); /* 모바일 화면에서 배너가 한 줄에 3개씩 균등 배치되도록 설정 */
-        justify-content: center;
-    }
-    #banner li img {
-        max-height: 50px !important;  /* 모바일 화면 크기에 맞게 이미지 높이 축소 */
-        width: 100% !important;
-        object-fit: contain;          /* 이미지 비율 유지하며 박스에 맞춤 */
+    .shop-container {
+        margin: 20px auto !important;
+        padding: 0 15px !important;
     }
     
-    /* 만약 배너 구분선(bannerbar.png) 이미지가 모바일에서 보기 싫게 따로 논다면 숨김 처리 */
-    #banner li:has(img[src="bannerbar.png"]) {
-        display: none !important;
+    .product-list {
+        gap: 15px !important; /* 모바일 전용 좁은 간격 적용 */
     }
-    /* =================================================== */
 
+    /* 💡 모바일에서는 한 줄에 1개씩 깔끔하게 정돈 */
     .product-item {
-        float: none;
-        width: 98%;   
-        margin: 0 auto 20px auto;
+        width: 100% !important;   
+        padding: 15px !important;
     }
-    .shop-title {
-        font-size: 24px;
-    }
-    .menu, .main, .right{
-        width: 100%;
-    }
-
-    /* 모바일 푸터 레이아웃 교정 */
-    footer {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: flex-start !important;
-        padding: 15px 10px !important;
-    }
-    footer #left, footer #sns {
-        float: none !important;
-        width: 48% !important;
-    }
-    footer #email li {
-        font-size: 11px !important;
-        word-break: break-all;
-    }
-    footer #sns h3 {
-        font-size: 13px !important;
-    }
-    footer #sns select {
-        margin: 5px 0 0 0 !important;
-        width: 100% !important;
-    }
-    footer #icons {
-        text-align: right !important;
-        margin-top: 8px !important;
+    
+    .product-item img {
+        height: 160px !important;
     }
 }
 </style>
@@ -340,7 +138,7 @@ footer li{
 <body>
 <div id="page">
     
-    <header style="background-color:#faf9f4;">
+    <header>
         <ul id="top_menu">
             <li>로그인 | </li>
             <li>방명록 | </li>
@@ -355,7 +153,7 @@ footer li{
         </div>
         <div class="line"></div>
 
-        <nav style="background-image:url('paper.png');">
+        <nav>
             <ul>
                 <li><a href="menu01.html"><img src="menu01.png"></a></li>
                 <li><a href="menu02.html"><img src="menu02.png"></a></li>
@@ -374,7 +172,6 @@ footer li{
         </div>
 
         <div class="product-list">
-
             <div class="product-item">
                 <img src="item1.png" alt="용품1">
                 <div class="product-name">이즈칸 시니어 밸런스 사료</div>
@@ -446,9 +243,7 @@ footer li{
                     네이버쇼핑에서 주기적으로 400매씩 사는 배변패드. 절약형을 쓰면 부담없이 패드를 교체할 수 있다.
                 </div>
             </div>
-
         </div> 
-
     </div> 
 
     <div id="banner">

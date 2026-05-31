@@ -4,133 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로이 돌봄일기 블로그</title>
+    <link rel="stylesheet" href="style.css">
 <style>
-*{
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
-}
-body{
-    font-family:"맑은 고딕";
-    font-size:16px;
-    color:#000000;
-}
-ul{
-    list-style-type:none;
-    margin:0;
-}
-#page{
-    width:100%;
-    margin:0 auto;
-}
-header #top_menu{
-    float:right;
-    margin:15px 20px 0 0;
-}
-header #top_menu li{
-    display:inline;
-    color: #444444;
-}
-.logo-container {
-    display: flex;
-    flex-direction: column;  
-    align-items: center;     
-    justify-content: center;      
-    clear: both;            
-}
-.logo-container #logo{
-    width:400px;
-    max-width: 100%;
-    margin-bottom:10px;
-}
-.line{
-    margin-top:10px;
-    border-top:solid 1px #cccccc;
-}
-.line2{
-    border-top:solid 1px #cccccc;
-}
-
-header nav {
-    width: 100%;
-    display: block;
-}
-header nav ul {
-    display: flex;             
-    justify-content: center;   
-    gap: 7%;                   
-    align-items: center;       
-    flex-wrap: nowrap;         
-    padding: 5px 0; 
-}
-header nav li {
-    flex-shrink: 1;            
-    min-width: 0;              
-}
-header nav li img {
-    width: 100%;               
-    max-width: 200px;          
-    height: auto;              
-    display: block; 
-}
-
-.content-wrapper {
-    overflow: auto;
-    padding-top: 15px;
-}
-
-/* PC 버전 푸터 기본 스타일 */
-footer {
-    clear: both; 
-    background-color: #ececec;
-    padding: 15px;
-    margin-top: 7px;
-    color: #666666;
-    overflow: hidden; 
-}
-footer ul{
-    list-style-type:none;
-    padding:0px;
-    margin:0px;
-}
-footer #left{
-    float:left;
-}
-footer #sns{
-    float:right;
-}
-footer #email li{
-    margin-top:5px;
-}
-footer #copyright{
-    margin-top:10px;
-    font-size:11px;
-    color:#888888;
-}
-footer #sns h3{
-    margin-top:0;
-    margin-bottom:0;
-    font-size:16px;
-    color:#585858;
-}
-footer #sns select{
-    margin:5px 0 0 100px;
-    width:100px;
-    height:18px;
-    font-size:11px;
-}
-footer #icons{
-    margin-top:5px;
-    text-align:right;
-}
-footer #icons img{
-    width:25px;
-}
-footer li{
-    font-size:12px;
-}
-
-/* ===== diary page ===== */
+/* ===== 1번 메뉴 전용 독자 스타일 ===== */
 .diary-container{
     width: 90%;
     max-width: 900px;
@@ -172,130 +48,25 @@ footer li{
     margin-bottom: 20px;
 }
 
-#banner {
-    width: 100%;
-    clear: both; 
-    height: 120px;
-    background-color: #f9e8c8;
-    margin-top: 15px;
-    overflow: hidden; 
-}
-#banner ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-#banner li {
-    display: flex;
-    align-items: center;
-    margin: 0 15px;
-}
-#banner li img {
-    max-height: 90px;
-    width: auto;
-    display: block;
-}
-
-/* ================= 반응형 모바일 설정 (화면 너비 620px 이하) ================= */
+/* ================= 1번 메뉴 전용 반응형 모바일 설정 (620px 이하) ================= */
 @media only screen and (max-width: 620px) {
-
-    /* ======= [추가] 광고 배너 모바일 반응형 조절 ======= */
-    #banner {
-        height: auto !important;      /* 고정 높이(120px)를 해제하여 배너가 아래로 쌓이도록 설정 */
-        padding: 15px 10px !important; /* 모바일에서의 내부 여백 부여 */
-    }
-    #banner ul {
-        flex-wrap: wrap !important;   /* 화면 폭이 좁아지면 배너들이 아래 줄로 자동 줄바꿈 */
-        gap: 10px !important;         /* 배너 이미지들 사이의 상하좌우 간격 설정 */
-    }
-    #banner li {
-        margin: 0 !important;         /* 기존 PC 버전의 고정 마진 초기화 */
-        flex: 1 1 calc(33.33% - 10px); /* 모바일 화면에서 배너가 한 줄에 3개씩 균등 배치되도록 설정 */
-        justify-content: center;
-    }
-    #banner li img {
-        max-height: 50px !important;  /* 모바일 화면 크기에 맞게 이미지 높이 축소 */
-        width: 100% !important;
-        object-fit: contain;          /* 이미지 비율 유지하며 박스에 맞춤 */
-    }
-    
-    /* 만약 배너 구분선(bannerbar.png) 이미지가 모바일에서 보기 싫게 따로 논다면 숨김 처리 */
-    #banner li:has(img[src="bannerbar.png"]) {
-        display: none !important;
-    }
-    /* =================================================== */
-    
-    .left, .main, .right {
-        width: 100% !important;
-        float: none;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .royprofile, .myprofile {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    /* 서브타이틀 모바일 절대 크기 고정 (다른 메뉴와 통일) */
     .diary-title img {
         width: 210px !important;  
         height: auto !important;
-        margin: 0 auto;
+        margin: 0 auto !important;
+        display: block !important;
     }
-    .diary-title{
-        font-size: 24px;
+    .diary-title {
+        font-size: 24px !important;
     }
-    .diary-paper{
-        padding: 20px;
-        font-size: 15px;
+    .diary-container {
+        width: 95% !important;
+        margin: 20px auto !important;
+        padding: 10px !important;
     }
-
-    /* ======= [추가] 상단 우측 메뉴 모바일 반응형 조절 ======= */
-    header #top_menu {
-        margin: 10px 10px 0 0 !important; /* 모바일 화면에 맞춰 우측 여백 축소 */
-    }
-    header #top_menu li {
-        font-size: 12px !important;       /* 모바일 화면에서 글자 크기 축소 */
-        color: #666666 !important;
-    }
-
-    /* 모바일 푸터를 Flexbox 레이아웃으로 변경하여 좌우 정렬 강제 유지 */
-    footer {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: flex-start !important;
-        padding: 15px 10px !important;
-    }
-
-    footer #left, footer #sns {
-        float: none !important;
-        width: 48% !important; /* 좌우 가로폭을 거의 반반씩 나눠 가짐 */
-    }
-
-    footer #email li {
-        font-size: 11px !important;
-        word-break: break-all; /* 이메일 주소가 길어도 튀어나가지 않게 설정 */
-    }
-
-    footer #sns h3 {
-        font-size: 13px !important;
-    }
-
-    footer #sns select {
-        margin: 5px 0 0 0 !important; /* PC 버전의 margin-left: 100px 제거 */
-        width: 100% !important;        /* 모바일에서는 부모 너비에 꽉 차게 조절 */
-    }
-
-    footer #icons {
-        text-align: right !important;
-        margin-top: 8px !important;
+    .diary-paper {
+        padding: 20px !important;
+        font-size: 15px !important;
     }
 }
 </style>
@@ -303,7 +74,7 @@ footer li{
 <body>
 <div id="page">
     
-    <header style="background-color:#faf9f4;">
+    <header>
         <ul id="top_menu">
             <li>로그인 | </li>
             <li>방명록 | </li>
@@ -319,7 +90,7 @@ footer li{
 
         <div class="line"></div>
 
-        <nav style="background-image:url('paper.png');">
+        <nav>
             <ul>
                 <li><a href="menu01.html"><img src="menu01.png"></a></li>
                 <li><a href="menu02.html"><img src="menu02.png"></a></li>
@@ -332,43 +103,41 @@ footer li{
 
     <div class="line2"></div>
 
-<div class="diary-container">
- <div class="diary-title">
-    <img src="subtitle1.png" alt="로이와 첫만남">
-</div>
+    <div class="diary-container">
+        <div class="diary-title">
+            <img src="subtitle1.png" alt="로이와 첫만남">
+        </div>
 
-    <div class="photo-grid">
-        <img src="first1.jpg">
-        <img src="first2.jpg">
-        <img src="first3.jpg">
-        <img src="first4.jpg">
+        <div class="photo-grid">
+            <img src="first1.jpg">
+            <img src="first2.jpg">
+            <img src="first3.jpg">
+            <img src="first4.jpg">
+        </div>
+
+        <div class="diary-paper">
+            <p>
+                로이와 처음 만난건 2017년 말. 내가 방황하던 시기 엄마가 갑자기
+                나랑 강아지 보러 가자고 하다니 로이를 덜컥 데려와버렸다.
+                예전에 강아지를 키우자고 했을때 반대했던 엄마가 왜 갑자기
+                그런 선택을 한건진 모르겠다. 어쨌든 그렇게 로이를 만나게 되었다.
+            </p>
+
+            <p>
+                로이는 처음 만났을때 곤히 자고 있었다. 다른 강아지들이 사람에게
+                관심을 받기 위해 왕왕 짖고 있을때 로이는 곤히 자고 있는 모습이
+                차분한 내 모습과 비슷한 것 같아 맘에 들어서 데려오게 되었다.
+                근데 데려오고 보니 마냥 차분하기만 한 강아지는 아니다. 녀석 날 만나기 위해
+                일부러 자는 척 한거구나?
+            </p>
+
+            <p>
+                로이의 이름은 내가 좋아하는 영화 ‘더폴’의 잘생긴 남자주인공
+                ‘로이’에서 따왔다. 이름을 잘 지어준 것 같다. 이제는 로이? 하면
+                뒤돌아서 날 쳐다본다. 자기 이름을 아는지도...
+            </p>
+        </div>
     </div>
-
-    <div class="diary-paper">
-        <p>
-            로이와 처음 만난건 2017년 말. 내가 방황하던 시기 엄마가 갑자기
-            나랑 강아지 보러 가자고 하다니 로이를 덜컥 데려와버렸다.
-            예전에 강아지를 키우자고 했을때 반대했던 엄마가 왜 갑자기
-            그런 선택을 한건진 모르겠다. 어쨌든 그렇게 로이를 만나게 되었다.
-        </p>
-
-        <p>
-            로이는 처음 만났을때 곤히 자고 있었다. 다른 강아지들이 사람에게
-            관심을 받기 위해 왕왕 짖고 있을때 로이는 곤히 자고 있는 모습이
-            차분한 내 모습과 비슷한 것 같아 맘에 들어서 데려오게 되었다.
-            근데 데려오고 보니 마냥 차분하기만 한 강아지는 아니다. 녀석 날 만나기 위해
-            일부러 자는 척 한거구나?
-        </p>
-
-        <p>
-            로이의 이름은 내가 좋아하는 영화 ‘더폴’의 잘생긴 남자주인공
-            ‘로이’에서 따왔다. 이름을 잘 지어준 것 같다. 이제는 로이? 하면
-            뒤돌아서 날 쳐다본다. 자기 이름을 아는지도...
-        </p>
-    </div>
-
-    
-</div>
 
     <div id="banner">
         <ul>

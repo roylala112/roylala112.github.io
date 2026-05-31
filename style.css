@@ -1,0 +1,213 @@
+/* ==========================================================================
+   [공통 스타일시트] style.css - 로이 돌봄일기 블로그
+   ========================================================================== */
+
+/* 1. 기본 초기화 및 레이아웃 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "맑은 고딕", sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#page {
+    width: 100%;
+    margin: 0 auto;
+}
+.line {
+    margin-top: 10px;
+    border-top: solid 1px #cccccc;
+}
+.line2 {
+    border-top: solid 1px #cccccc;
+}
+
+/* 2. 헤더 및 네비게이션 영역 */
+header {
+    background-color: #faf9f4;
+}
+header #top_menu {
+    float: right;
+    margin: 15px 20px 0 0;
+}
+header #top_menu li {
+    display: inline;
+    color: #444444;
+}
+.logo-container {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center;      
+    clear: both;            
+}
+.logo-container #logo {
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+header nav {
+    width: 100%;
+    display: block;
+    background-image: url('paper.png');
+}
+header nav ul {
+    display: flex;             
+    justify-content: center;   
+    gap: 7%;                   
+    align-items: center;       
+    flex-wrap: nowrap;         
+    padding: 5px 0; 
+}
+header nav li {
+    flex-shrink: 1;            
+    min-width: 0;              
+}
+header nav li img {
+    width: 100%;               
+    max-width: 200px;          
+    height: auto;              
+    display: block; 
+}
+
+/* 3. 중간 광고 배너 영역 */
+#banner {
+    width: 100%;
+    clear: both; 
+    height: 120px;
+    background-color: #f9e8c8;
+    margin-top: 15px;
+    overflow: hidden; 
+}
+#banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+#banner li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+#banner li img {
+    max-height: 90px;
+    width: auto;
+    display: block;
+}
+
+/* 4. 푸터 영역 */
+footer {
+    clear: both; 
+    background-color: #ececec;
+    padding: 15px;
+    margin-top: 7px;
+    color: #666666;
+    overflow: hidden; 
+}
+footer #left {
+    float: left;
+}
+footer #sns {
+    float: right;
+}
+footer #email li {
+    margin-top: 5px;
+}
+footer #copyright {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #888888;
+}
+footer #sns h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #585858;
+}
+footer #sns select {
+    margin: 5px 0 0 100px;
+    width: 100px;
+    height: 18px;
+    font-size: 11px;
+}
+footer #icons {
+    margin-top: 5px;
+    text-align: right;
+}
+footer #icons img {
+    width: 25px;
+}
+footer li {
+    font-size: 12px;
+}
+
+/* 5. 공통 모바일 반응형 설정 (620px 이하) */
+@media only screen and (max-width: 620px) {
+    header #top_menu {
+        margin: 10px 10px 0 0 !important;
+    }
+    header #top_menu li {
+        font-size: 12px !important;       
+        color: #666666 !important;
+    }
+    #banner {
+        height: auto !important;      
+        padding: 15px 10px !important; 
+    }
+    #banner ul {
+        flex-wrap: wrap !important;   
+        gap: 10px !important;         
+    }
+    #banner li {
+        margin: 0 !important;         
+        flex: 1 1 calc(33.33% - 10px) !important; 
+        justify-content: center !important;
+    }
+    #banner li img {
+        max-height: 50px !important;  
+        width: 100% !important;
+        object-fit: contain !important;          
+    }
+    #banner li:has(img[src="bannerbar.png"]) {
+        display: none !important;
+    }
+    footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+    }
+    footer #left, footer #sns {
+        float: none !important;
+        width: 48% !important;
+    }
+    footer #email li {
+        font-size: 11px !important;
+        word-break: break-all;
+    }
+    footer #sns h3 {
+        font-size: 13px !important;
+    }
+    footer #sns select {
+        margin: 5px 0 0 0 !important;
+        width: 100% !important;
+    }
+    footer #icons {
+        text-align: right !important;
+        margin-top: 8px !important;
+    }
+}
